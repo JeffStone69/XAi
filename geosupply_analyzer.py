@@ -1,13 +1,11 @@
-```python
 #!/usr/bin/env python3
 """
-🌍 GeoSupply Short-Term Profit Predictor v2.5
-Improved by Grok: Changes and Enhancements
-- **Signal Calculation Sophistication**: Enhanced RSI with 14-period standard, added MACD signal, Bollinger Band width for volatility, and a composite score using weighted factors. Normalized signals with z-score and added trend detection.
-- **UI Improvements**: Added sector-specific color coding in leaderboard, interactive filters for signals, improved chart interactivity with annotations, responsive layout with columns.
-- **New Features**: Added "Save Evolutions" to store previous script versions in session state and download as TXT. Added export options for data and charts. Integrated news fetch for top tickers in Thesis tab.
-- **Robustness**: Improved error handling in data fetch and signals, added input validation, increased cache TTL, handled empty data gracefully, added logging for improvements.
-- **Other**: Updated to v2.5, refined prompts for Grok, added auto-refresh toggle.
+🌍 GeoSupply Short-Term Profit Predictor v4.0
+Self-Improving • Database-Powered • Sector Heatmap • Persistent Grok Memory Edition
+Optimized & Architected by Grok (xAI) for GitHub Repo: https://github.com/JeffStone69/XAi
+
+Complete ready-to-run Streamlit app.
+Run with: streamlit run geosupply_analyzer.py
 """
 
 import streamlit as st
@@ -17,80 +15,371 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import requests
 import logging
-from datetime import datetime
 import numpy as np
-import inspect
-import io  # For TXT download
+import sqlite3
+import hashlib
+from typing import List, Dict, Any, Optional, Tuple
+import warnings
+from datetime import datetime
 
-st.set_page_config(page_title="GeoSupply v2.5", page_icon="🌍", layout="wide")
+warnings.filterwarnings("ignore")
 
-# ====================== CONFIG ======================
-SECTORS = {
-    "Mining": ["BHP.AX","RIO.AX","FMG.AX","FCX","NEM","VALE","SCCO"],
-    "Shipping": ["ZIM","MATX","SBLK","QUB.AX","DAC"],
-    "Energy": ["XOM","CVX","STO.AX","WHC.AX","CCJ","COP"],
-    "Renewable": ["NEE","FSLR","ENPH","IGO.AX"],
-    "Tech": ["NVDA","TSLA","WTC.AX","XRO.AX","AMD"]
-}
-ALL_TICKERS = list(dict.fromkeys(sum(SECTORS.values(), [])))
-SECTOR_COLORS = {
-    "Mining": "#FF5733", "Shipping": "#33FF57", "Energy": "#3357FF",
-    "Renewable": "#FF33A1", "Tech": "#A133FF", "Other": "#808080"
-}
+# ====================== CONFIG & LOGGING ======================
+st.set_page_config(
+    page_title="GeoSupply Short-Term Profit Predictor v4.0",
+    page_icon="🌍",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
-logging.basicConfig(filename="geosupply.log", level=logging.INFO)
+logging.basicConfig(
+    filename="geosupply_analyzer.log",
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+logging.getLogger().addHandler(console_handler)
 
-# ====================== DATA ======================
-@st.cache_data(ttl=300)  # Increased TTL for robustness
-def fetch_data(tickers):
+logging.info("🚀 GeoSupply v4.0 initialized - DB persistence active")
+
+# ====================== DATABASE PERSISTENCE ======================
+def init_db() -> None:
     try:
-        data = yf.Tickers(tickers).download(period="3mo", group_by="ticker", auto_adjust=True, threads=True)  # Extended period for better signals
-        return {ticker: data[ticker].dropna(how="all") for ticker in tickers if not data[ticker].empty}
+        conn = sqlite3.connect("geosupply.db")
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS grok_interactions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
+                interaction_type TEXT,
+                model TEXT,
+                prompt_hash TEXT,
+                response TEXT
+            )
+        """)
+        conn.commit()
+        conn.close()
+        logging.info("DB_INIT: SQLite database ready")
     except Exception as e:
-        logging.error(f"Fetch error: {e}")
-        st.error(f"Data fetch error: {e}. Retrying with single thread.")
-        try:  # Fallback to single thread
-            return {t: yf.download(t, period="3mo", auto_adjust=True).dropna(how="all") for t in tickers}
-        except Exception as e2:
-            logging.error(f"Fallback fetch error: {e2}")
-            st.error(f"Fallback failed: {e2}")
+        logging.error(f"DB_INIT error: {e}")
+
+def log_grok_interaction(interaction_type: str, model: str, prompt: str, response: str) -> None:
+    try:
+        prompt_hash = hashlib.md5(prompt.encode("utf-8")).hexdigest()[:16]
+        conn = sqlite3.connect("geosupply.db")
+        conn.execute("""
+            INSERT INTO grok_interactions 
+            (interaction_type, model, prompt_hash, response)
+            VALUES (?, ?, ?, ?)
+        """, (interaction_type, model, prompt_hash, response))
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        logging.warning(f"DB_LOG failed: {e}")
+
+def get_grok_history(limit: int = 20) -> pd.DataFrame:
+    try:
+        conn = sqlite3.connect("geosupply.db")
+        df = pd.read_sql_query("""
+            SELECT timestamp, interaction_type, model, prompt_hash, response
+            FROM grok_interactions 
+            ORDER BY timestamp DESC 
+            LIMIT ?
+        """, conn, params=(limit,))
+        conn.close()
+        return df
+    except Exception as e:
+        logging.warning(f"DB_HISTORY query failed: {e}")
+        return pd.DataFrame(columns=["timestamp", "interaction_type", "model", "prompt_hash", "response"])
+
+# ====================== SECTOR DEFINITIONS ======================
+ASX_MINING = ["BHP.AX", "RIO.AX", "FMG.AX", "S32.AX", "MIN.AX"]
+ASX_SHIPPING = ["QUB.AX", "TCL.AX", "ASX.AX"]
+ASX_ENERGY = ["STO.AX", "WDS.AX", "ORG.AX", "WHC.AX", "BPT.AX"]
+ASX_TECH = ["WTC.AX", "XRO.AX", "TNE.AX", "NXT.AX", "REA.AX", "360.AX", "PME.AX"]
+ASX_RENEW = ["ORG.AX", "AGL.AX", "IGO.AX", "IFT.AX", "MCY.AX", "CEN.AX", "MEZ.AX", "JNS.AX"]
+
+US_MINING = ["FCX", "NEM", "VALE", "SCCO", "GOLD", "AEM"]
+US_SHIPPING = ["ZIM", "MATX", "SBLK", "DAC", "CMRE"]
+US_ENERGY = ["XOM", "CVX", "COP", "OXY", "CCJ"]
+US_TECH = ["NVDA", "AAPL", "MSFT", "GOOGL", "AMD", "TSLA"]
+US_RENEW = ["NEE", "BEPC", "CWEN", "FSLR", "ENPH"]
+
+SECTORS: Dict[str, List[str]] = {
+    "Mining": ASX_MINING + US_MINING,
+    "Shipping": ASX_SHIPPING + US_SHIPPING,
+    "Energy": ASX_ENERGY + US_ENERGY,
+    "Tech": ASX_TECH + US_TECH,
+    "Renewable": ASX_RENEW + US_RENEW,
+}
+
+ALL_TICKERS = list(dict.fromkeys(
+    ASX_MINING + ASX_SHIPPING + ASX_ENERGY + ASX_TECH + ASX_RENEW +
+    US_MINING + US_SHIPPING + US_ENERGY + US_TECH + US_RENEW
+))
+
+API_BASE = "https://api.x.ai/v1"
+AVAILABLE_MODELS = [
+    "grok-4.20-reasoning",
+    "grok-4.20-non-reasoning",
+    "grok-4.20-multi-agent-0309",
+    "grok-4-1-fast-reasoning",
+    "grok-4-1-fast-non-reasoning"
+]
+
+# ====================== GROK API ======================
+def call_grok_api(prompt: str, model: str, temperature: float = 0.6, interaction_type: Optional[str] = None) -> str:
+    if not st.session_state.get("grok_api_key"):
+        return "⚠️ Please enter your Grok API key in the sidebar."
+
+    headers = {"Authorization": f"Bearer {st.session_state.grok_api_key}", "Content-Type": "application/json"}
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": temperature,
+        "max_tokens": 1800
+    }
+
+    try:
+        resp = requests.post(f"{API_BASE}/chat/completions", headers=headers, json=payload, timeout=90)
+        resp.raise_for_status()
+        content = resp.json()["choices"][0]["message"]["content"]
+        if interaction_type:
+            log_grok_interaction(interaction_type, model, prompt, content)
+        return content
+    except Exception as e:
+        logging.error(f"Grok API error: {e}")
+        return f"❌ Grok API error: {str(e)[:200]}"
+
+# ====================== DATA FETCH ======================
+@st.cache_data(ttl=300, show_spinner=False)
+def fetch_raw_market_data(tickers: List[str]) -> Dict[str, pd.DataFrame]:
+    try:
+        raw = yf.download(tickers=tickers, period="1mo", interval="1d", group_by="ticker",
+                          auto_adjust=True, threads=True, progress=False)
+        if raw.empty:
             return {}
 
-# ====================== SIGNALS ======================
-@st.cache_data(ttl=300)
-def compute_signals(raw_data, horizon="5d", selected_sectors=None, min_signal=0.0):
-    lookback = {"5d":5, "10d":10, "1mo":20}.get(horizon, 5)
+        ticker_data = {}
+        for ticker in tickers:
+            if ticker in raw.columns.get_level_values(0):
+                df = raw[ticker].dropna(how="all")
+                if not df.empty and "Close" in df.columns and "Volume" in df.columns:
+                    ticker_data[ticker] = df
+        return ticker_data
+    except Exception as e:
+        logging.error(f"Batch download failed: {e}")
+        return {}
+
+# ====================== SIGNAL CALCULATION ======================
+def calculate_rsi(close_series: pd.Series, period: int = 14) -> float:
+    delta = close_series.diff()
+    gain = delta.where(delta > 0, 0).rolling(window=period).mean()
+    loss = -delta.where(delta < 0, 0).rolling(window=period).mean()
+    rs = gain / loss
+    rsi = 100 - (100 / (1 + rs))
+    return float(rsi.iloc[-1]) if len(rsi) > period and not pd.isna(rsi.iloc[-1]) else 50.0
+
+@st.cache_data(ttl=300, show_spinner=False)
+def compute_profit_signals(raw_data: Dict[str, pd.DataFrame], horizon: str) -> pd.DataFrame:
+    if not raw_data:
+        return pd.DataFrame()
+
+    lookback_map = {"5d": 5, "10d": 10, "1mo": 20}
+    lookback = lookback_map.get(horizon, 5)
+
     records = []
-    for ticker, df in raw_data.items():
-        if len(df) < lookback + 14 or "Close" not in df.columns: continue  # Ensure enough data for indicators
+    for ticker, hist in raw_data.items():
+        if hist.empty or len(hist) < lookback + 1 or "Close" not in hist.columns:
+            continue
+
         try:
-            close = df["Close"].dropna()
-            ret = close.pct_change().dropna()
+            current_price = float(hist["Close"].iloc[-1])
+            past_price = float(hist["Close"].iloc[-(lookback + 1)])
+            price_change_pct = ((current_price - past_price) / past_price) * 100
+
+            volume_avg = float(hist["Volume"].mean())
+            recent_vol = float(hist["Volume"].iloc[-1])
+            vol_spike = recent_vol / volume_avg if volume_avg > 0 else 1.0
+
+            daily_returns = hist["Close"].pct_change().dropna()
+            volatility_pct = float(daily_returns.std() * 100) if not daily_returns.empty else 0.0
+            rsi = calculate_rsi(hist["Close"])
+
+            momentum = price_change_pct / 100
+            vol_factor = min(volume_avg / 1_000_000, 12.0)
+            risk_adjust = 1.0 / (1.0 + volatility_pct / 8.0) if volatility_pct > 0 else 1.0
+            signal_score = round(momentum * vol_factor * vol_spike * risk_adjust * 12.0, 3)
+
+            sector = next((name for name, tks in SECTORS.items() if ticker in tks), "Other")
+
+            records.append({
+                "Ticker": ticker,
+                "Current Price": round(current_price, 2),
+                f"{horizon} Change %": round(price_change_pct, 1),
+                "Avg Vol (M)": round(volume_avg / 1_000_000, 1),
+                "Vol Spike": round(vol_spike, 2),
+                "Volatility %": round(volatility_pct, 1),
+                "RSI": round(rsi, 1),
+                "Signal Score": signal_score,
+                "Sector": sector
+            })
+        except Exception as e:
+            logging.warning(f"Error processing {ticker}: {e}")
+            continue
+
+    df = pd.DataFrame(records)
+    if not df.empty:
+        df = df.sort_values("Signal Score", ascending=False).reset_index(drop=True)
+    return df
+
+# ====================== IBKR EXPORT ======================
+def create_ibkr_watchlist_csv(df: pd.DataFrame) -> str:
+    if df.empty:
+        return ""
+    top10 = df.head(10).copy()
+    top10["Action"] = "BUY"
+    top10["Quantity"] = ""
+    top10["Exchange"] = top10["Ticker"].apply(lambda x: "ASX" if x.endswith(".AX") else "SMART")
+    ibkr_df = top10[["Ticker", "Exchange", "Action", "Current Price"]].rename(
+        columns={"Ticker": "Symbol", "Current Price": "Last Price"}
+    )
+    return ibkr_df.to_csv(index=False)
+
+# ====================== SECTOR HEATMAP ======================
+def create_sector_heatmap(df: pd.DataFrame) -> go.Figure:
+    if df.empty:
+        return go.Figure()
+    sector_stats = df.groupby("Sector").agg({
+        "Signal Score": "mean",
+        "Ticker": "count"
+    }).round(2)
+    sector_stats = sector_stats.rename(columns={"Ticker": "Count"})
+    
+    fig = go.Figure(data=go.Heatmap(
+        z=sector_stats["Signal Score"].values.reshape(-1, 1),
+        x=["Avg Signal"],
+        y=sector_stats.index,
+        colorscale="RdYlGn",
+        text=sector_stats["Signal Score"].values,
+        texttemplate="%{text}",
+        hoverongaps=False
+    ))
+    fig.update_layout(title="Sector Momentum Heatmap", height=400, template="plotly_dark")
+    return fig
+
+# ====================== MAIN APP ======================
+init_db()
+
+if "grok_api_key" not in st.session_state:
+    st.session_state.grok_api_key = ""
+
+st.title("🌍 GeoSupply Short-Term Profit Predictor **v4.0**")
+st.caption("**Self-Improving • Persistent Memory • Sector Heatmap** | Geo-Supply Chain Alpha")
+
+with st.sidebar:
+    st.header("🔑 Grok API")
+    api_key = st.text_input("Grok API Key (x.ai)", type="password", value=st.session_state.grok_api_key)
+    if api_key:
+        st.session_state.grok_api_key = api_key
+        st.success("✅ API key saved")
+
+    st.header("⚙️ Settings")
+    horizon = st.selectbox("Signal Horizon", ["5d", "10d", "1mo"], index=0)
+    model = st.selectbox("Grok Model", AVAILABLE_MODELS, index=0)
+
+    st.divider()
+    if st.button("🔄 Refresh All Data & Signals", type="primary", use_container_width=True):
+        st.cache_data.clear()
+        st.rerun()
+
+    st.caption("**Not financial advice.**")
+
+# Tabs
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["📈 Leaderboard", "📊 Charts", "🔥 Sector Heatmap", "🤖 Grok Thesis", "📜 Grok History"])
+
+if "raw_data" not in st.session_state:
+    with st.spinner("Fetching market data..."):
+        st.session_state.raw_data = fetch_raw_market_data(ALL_TICKERS)
+
+raw_data = st.session_state.raw_data
+
+with tab1:
+    st.subheader(f"🔥 Profit Signal Leaderboard ({horizon})")
+    summary_df = compute_profit_signals(raw_data, horizon)
+
+    if not summary_df.empty:
+        st.dataframe(
+            summary_df.style.background_gradient(cmap="RdYlGn", subset=["Signal Score"]),
+            use_container_width=True,
+            hide_index=True
+        )
+
+        col1, col2 = st.columns(2)
+        with col1:
+            st.download_button("📥 Full Watchlist CSV", data=summary_df.to_csv(index=False),
+                               file_name=f"geosupply_{horizon}.csv", mime="text/csv")
+        with col2:
+            ibkr_csv = create_ibkr_watchlist_csv(summary_df)
+            st.download_button("🚀 IBKR Top-10 Export", data=ibkr_csv,
+                               file_name=f"IBKR_GeoSupply_Top10_{horizon}.csv", mime="text/csv")
+
+        st.subheader("🚀 Top 5 Trades")
+        cols = st.columns(5)
+        for i, row in summary_df.head(5).iterrows():
+            with cols[i]:
+                st.metric(label=row['Ticker'], value=f"${row['Current Price']}",
+                          delta=f"{row[f'{horizon} Change %']}%")
+                st.caption(f"Signal: {row['Signal Score']} | {row['Sector']}")
+    else:
+        st.error("No data. Try refreshing.")
+
+with tab2:
+    st.subheader("Price & Volume Charts")
+    if not summary_df.empty:
+        for ticker in summary_df.head(8)["Ticker"]:
+            hist = raw_data.get(ticker)
+            if hist is not None and not hist.empty:
+                fig = make_subplots(specs=[[{"secondary_y": True}]])
+                fig.add_trace(go.Scatter(x=hist.index, y=hist["Close"], name="Price", line=dict(color="#00ff9d")), secondary_y=False)
+                fig.add_trace(go.Bar(x=hist.index, y=hist["Volume"], name="Volume", opacity=0.4, marker_color="#00ff9d"), secondary_y=True)
+                fig.update_layout(title=f"{ticker} — {horizon} View", height=340, template="plotly_dark")
+                st.plotly_chart(fig, use_container_width=True)
+
+with tab3:
+    st.subheader("🔥 Sector Momentum Heatmap")
+    if not summary_df.empty:
+        heatmap = create_sector_heatmap(summary_df)
+        st.plotly_chart(heatmap, use_container_width=True)
+
+with tab4:
+    st.subheader("🤖 Grok 2-5 Day Thesis")
+    if st.button("Generate Thesis + Self-Improvement Suggestions", type="primary"):
+        with st.spinner("Generating Grok thesis..."):
+            prompt = f"""Analyze the current GeoSupply leaderboard for short-term (2-5 day) profit opportunities.
+Current top signals (horizon {horizon}):
+{summary_df.head(12).to_string()}
+
+Provide a concise thesis on the strongest geo-supply chain themes and 2-3 specific trade ideas."""
             
-            # Price Change
-            price_change = (close.iloc[-1] / close.iloc[-(lookback+1)] - 1) * 100
-            
-            # Volume Spike
-            vol_spike = df["Volume"].iloc[-1] / df["Volume"].rolling(lookback).mean().iloc[-1] if df["Volume"].mean() > 0 else 1.0
-            
-            # Enhanced RSI (14-period)
-            delta = close.diff()
-            gain = (delta.where(delta > 0, 0)).rolling(14).mean()
-            loss = (-delta.where(delta < 0, 0)).rolling(14).mean()
-            rs = gain / loss
-            rsi = 100 - (100 / (1 + rs)).iloc[-1]
-            
-            # MACD
-            ema12 = close.ewm(span=12, adjust=False).mean()
-            ema26 = close.ewm(span=26, adjust=False).mean()
-            macd = ema12 - ema26
-            signal_line = macd.ewm(span=9, adjust=False).mean()
-            macd_hist = (macd - signal_line).iloc[-1]
-            
-            # Bollinger Band Width for volatility
-            sma20 = close.rolling(20).mean()
-            std20 = close.rolling(20).std()
-            bb_width = (std20 / sma20 * 100).iloc[-1]
-            
-            # Composite Score: Weighted (price 40%, vol 20%, rsi 15%, macd 15%, bb 10%)
-            score = (price_change * 0.4)
+            thesis = call_grok_api(prompt, model, temperature=0.7, interaction_type="thesis")
+            st.markdown(thesis)
+
+            # Self-improvement
+            improve_prompt = f"Review this GeoSupply app thesis and suggest 3 concrete code/architecture improvements for v4.1: {thesis[:800]}"
+            suggestions = call_grok_api(improve_prompt, model, temperature=0.8, interaction_type="self_improve")
+            with st.expander("💡 Self-Improvement Suggestions (for next version)"):
+                st.markdown(suggestions)
+
+with tab5:
+    st.subheader("📜 Grok Interaction History (Persistent)")
+    history_df = get_grok_history(15)
+    if not history_df.empty:
+        for _, row in history_df.iterrows():
+            with st.expander(f"{row['timestamp']} | {row['interaction_type']} | {row['model']}"):
+                st.markdown(row['response'])
+    else:
+        st.info("No history yet. Generate a thesis first.")
+
+st.caption("Repo: https://github.com/JeffStone69/XAi • v4.0 Merged")
