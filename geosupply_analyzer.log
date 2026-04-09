@@ -6,3 +6,19 @@
 2026-04-10 07:06:54 | INFO | ✅ Batch fetched 54/54 tickers in one call
 2026-04-10 07:07:13 | INFO | ✅ Batch fetched 54/54 tickers in one call
 2026-04-10 07:11:01 | INFO | ✅ Batch fetched 54/54 tickers in one call
+2026-04-10 07:48:08 | INFO | 🚀 GeoSupply Short-Term Profit Predictor v3.0 initialized - Enhanced logging active
+2026-04-10 07:48:08 | INFO | DATA_FETCH: Starting batch download for 54 tickers
+2026-04-10 07:48:16 | INFO | DATA_FETCH: SUCCESS | Fetched 54 tickers in 8.15s
+2026-04-10 07:48:16 | INFO | 🚀 GeoSupply Short-Term Profit Predictor v3.0 initialized - Enhanced logging active
+2026-04-10 07:48:16 | INFO | SIDEBAR: Grok API key updated
+2026-04-10 07:48:24 | INFO | 🚀 GeoSupply Short-Term Profit Predictor v3.0 initialized - Enhanced logging active
+2026-04-10 07:48:24 | INFO | USER_TRIGGER: Full cache cleared and refresh requested
+2026-04-10 07:48:24 | INFO | 🚀 GeoSupply Short-Term Profit Predictor v3.0 initialized - Enhanced logging active
+2026-04-10 07:48:33 | INFO | 🚀 GeoSupply Short-Term Profit Predictor v3.0 initialized - Enhanced logging active
+2026-04-10 07:48:40 | INFO | 🚀 GeoSupply Short-Term Profit Predictor v3.0 initialized - Enhanced logging active
+2026-04-10 07:48:55 | INFO | 🚀 GeoSupply Short-Term Profit Predictor v3.0 initialized - Enhanced logging active
+2026-04-10 07:48:56 | INFO | GROK_INTERACTION: Initiated call | Model=grok-4.20-reasoning | Temp=0.6 | Prompt chars=1510
+2026-04-10 07:49:07 | INFO | GROK_INTERACTION: SUCCESS | Model=grok-4.20-reasoning | Response chars=729
+2026-04-10 07:49:17 | INFO | 🚀 GeoSupply Short-Term Profit Predictor v3.0 initialized - Enhanced logging active
+2026-04-10 07:49:18 | INFO | GROK_INTERACTION: Initiated call | Model=grok-4.20-reasoning | Temp=0.7 | Prompt chars=711
+2026-04-10 07:49:33 | INFO | GROK_INTERACTION: SUCCESS | Model=grok-4.20-reasoning | Response chars=4500
