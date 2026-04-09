@@ -181,38 +181,56 @@ def compute_profit_signals(raw_data: Dict[str, pd.DataFrame], horizon: str) -> p
     lookback_days = lookback_map.get(horizon, 5)
 
     records = []
+    closes = {t: float(hist["Close"].iloc[-1]) for t, hist in raw_data.items() 
+              if len(hist) > lookback_days + 5}
+
+    if not closes:
+        return pd.DataFrame()
+
+    # Vectorized momentum
+    momentum = {}
+    trend_quality = {}
     for ticker, hist in raw_data.items():
-        if hist.empty or len(hist) < lookback_days + 1 or "Close" not in hist.columns:
+        if len(hist) < lookback_days + 5 or "Close" not in hist.columns:
             continue
+        prices = hist["Close"].iloc[-(lookback_days+5):].values
+        current = prices[-1]
+        past = prices[-(lookback_days+1)]
 
+        mom = (current - past) / past
+        momentum[ticker] = mom
+
+        # Trend Quality: R² of linear regression
+        x = np.arange(len(prices))
+        slope, intercept = np.polyfit(x, prices, 1)
+        y_pred = slope * x + intercept
+        ss_res = np.sum((prices - y_pred)**2)
+        ss_tot = np.sum((prices - prices.mean())**2)
+        r2 = 1 - (ss_res / ss_tot) if ss_tot > 0 else 0
+        trend_quality[ticker] = r2 if slope > 0 else -r2
+
+    # Cross-sectional ranks + volatility adjustment
+    df_mom = pd.Series(momentum)
+    df_r2 = pd.Series(trend_quality)
+    vol = {t: float(raw_data[t]["Close"].pct_change().std()) for t in df_mom.index}
+
+    rank_mom = df_mom.rank(pct=True)
+    rank_r2 = df_r2.rank(pct=True)
+
+    for ticker in df_mom.index:
+        v = vol[ticker]
+        risk_adj = 1.0 / (1.0 + v * 15)  # sharper penalty
+        signal = round((rank_mom[ticker] * 0.55 + rank_r2[ticker] * 0.45) * risk_adj * 10, 3)
+
+        hist = raw_data[ticker]
         current_price = float(hist["Close"].iloc[-1])
-
-        # Momentum (price change over horizon)
-        past_idx = -(lookback_days + 1)
-        past_price = float(hist["Close"].iloc[past_idx])
-        price_change_pct = ((current_price - past_price) / past_price) * 100
-
-        # Volume metrics
+        price_change_pct = df_mom[ticker] * 100
         volume_avg = float(hist["Volume"].mean())
         recent_vol = float(hist["Volume"].iloc[-1])
         vol_spike = recent_vol / volume_avg if volume_avg > 0 else 1.0
+        volatility_pct = v * 100
 
-        # Volatility (risk filter)
-        daily_returns = hist["Close"].pct_change().dropna()
-        volatility_pct = float(daily_returns.std() * 100) if not daily_returns.empty else 0.0
-
-        # Enhanced Signal Score (self-improving formula)
-        momentum = price_change_pct / 100
-        vol_factor = min(volume_avg / 1_000_000, 12.0)          # cap extreme volume
-        risk_adjust = 1.0 / (1.0 + volatility_pct / 8.0) if volatility_pct > 0 else 1.0
-        signal_score = round(momentum * vol_factor * vol_spike * risk_adjust * 12.0, 3)
-
-        # Sector lookup
-        sector = "Other"
-        for sec_name, sec_tickers in SECTORS.items():
-            if ticker in sec_tickers:
-                sector = sec_name
-                break
+        sector = next((sec for sec, ticks in SECTORS.items() if ticker in ticks), "Other")
 
         records.append({
             "Ticker": ticker,
@@ -221,7 +239,8 @@ def compute_profit_signals(raw_data: Dict[str, pd.DataFrame], horizon: str) -> p
             "Avg Vol (M)": round(volume_avg / 1_000_000, 1),
             "Vol Spike": round(vol_spike, 2),
             "Volatility %": round(volatility_pct, 1),
-            "Signal Score": signal_score,
+            "Signal Score": signal,
+            "Trend Quality": round(trend_quality[ticker], 3),
             "Sector": sector
         })
 
@@ -250,37 +269,46 @@ def create_ibkr_watchlist_csv(df: pd.DataFrame) -> str:
 
 
 # ====================== SELF-IMPROVING CODE REVIEW ======================
+import inspect
+
+def get_own_source() -> str:
+    """Return only the core analytical functions for self-review."""
+    functions = [
+        fetch_raw_market_data,
+        compute_profit_signals,
+        call_grok_api,
+        generate_self_improvement_suggestion
+    ]
+    return "\n\n".join(
+        f"# === {func.__name__} ===\n{inspect.getsource(func)}" 
+        for func in functions
+    )
+
 def generate_self_improvement_suggestion():
-    """Grok reviews the current running code and suggests concrete optimizations.
-    True self-improving capability."""
-    try:
-        # Read own source (works in Streamlit cloud & local)
-        with open(__file__, "r", encoding="utf-8") as f:
-            source_code = f.read()
-    except Exception:
-        source_code = "Source not readable in this environment."
+    """Grok reviews its own codebase — now surgical and tunable."""
+    source = get_own_source()
 
     prompt = f"""You are Grok, the ultimate code optimizer and self-improving system architect.
-The following is the complete source code of geosupply_analyzer.py (v2.0).
+Today's date is 2026-04-10.
+
+Here is the *core* of geosupply_analyzer.py:
 
 <source>
-{source_code[:14000]}  # truncated for token limit
+{source}
 </source>
 
-Analyze for:
-1. Performance bottlenecks (even if already fast)
-2. Code cleanliness / readability
-3. New powerful features we can add in <5 minutes
-4. Better prompt engineering for the Grok thesis
-5. Any risk or edge-case improvements
+Focus exclusively on:
+1. Performance & caching strategy
+2. Signal quality / mathematical robustness
+3. New high-signal features that take <10 LOC
+4. Prompt engineering for the Grok Thesis tab
 
 Return ONLY a concise Markdown summary with:
 - 🚀 Top 3 immediate improvements
-- One ready-to-paste code snippet for the highest-impact change
-Be extremely specific and actionable. Today's date is {datetime.now().strftime('%Y-%m-%d')}."""
+- One ready-to-paste code snippet for the highest-impact change"""
 
-    with st.spinner("🧠 Grok is analyzing its own codebase..."):
-        return call_grok_api(prompt, model="grok-4.20-reasoning", temperature=0.5)
+    with st.spinner("🧠 Grok is performing surgical self-surgery..."):
+        return call_grok_api(prompt, model="grok-4.20-reasoning", temperature=0.3, max_tokens=900)
 
 
 # ====================== MAIN APP ======================
