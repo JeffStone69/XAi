@@ -21701,3 +21701,4 @@
 2026-04-11 03:58:45,521 | ERROR | yfinance error: name 'yfinance' is not defined
 2026-04-11 03:58:45,524 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=155056043): is_file, is_modified
 2026-04-11 03:58:45,524 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-11 04:30:42,727 | ERROR | DB log failed: table grok_interactions has no column named market_session
