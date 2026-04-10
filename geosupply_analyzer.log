@@ -13332,3 +13332,2024 @@
 2026-04-10 14:53:14,051 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
 2026-04-10 14:53:15,562 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154144352): is_file, is_modified
 2026-04-10 14:53:15,562 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:44:44,344 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:44:44,497 | DEBUG | Entering download()
+2026-04-10 15:44:44,498 | DEBUG | Disabling multithreading because DEBUG logging enabled
+2026-04-10 15:44:44,498 | DEBUG |  Entering history()
+2026-04-10 15:44:44,500 | DEBUG | ('CREATE TABLE IF NOT EXISTS "_tz_kv" ("key" VARCHAR(255) NOT NULL PRIMARY KEY, "value" VARCHAR(255)) WITHOUT ROWID', [])
+2026-04-10 15:44:44,501 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['BPT.AX', 1, 0])
+2026-04-10 15:44:44,619 | DEBUG |   Entering history()
+2026-04-10 15:44:44,619 | DEBUG | BPT.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:44,619 | DEBUG |    Entering get()
+2026-04-10 15:44:44,619 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:44,619 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/BPT.AX
+2026-04-10 15:44:44,619 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:44,619 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:44,619 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:44,621 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:44,621 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:44,621 | DEBUG |         Entering _load_cookie_curlCffi()
+2026-04-10 15:44:44,630 | DEBUG | ('CREATE TABLE IF NOT EXISTS "_cookieschema" ("strategy" VARCHAR(255) NOT NULL PRIMARY KEY, "fetch_date" DATETIME NOT NULL, "cookie_bytes" BLOB NOT NULL) WITHOUT ROWID', [])
+2026-04-10 15:44:44,630 | DEBUG | ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
+2026-04-10 15:44:44,631 | DEBUG |         Exiting _load_cookie_curlCffi()
+2026-04-10 15:44:44,631 | DEBUG | reusing persistent cookie
+2026-04-10 15:44:44,631 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:44,632 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:44,632 | DEBUG |         Entering _get_cookie_basic()
+2026-04-10 15:44:44,632 | DEBUG | reusing cookie
+2026-04-10 15:44:44,632 | DEBUG |         Exiting _get_cookie_basic()
+2026-04-10 15:44:45,262 | DEBUG | crumb = 'MLyEK.t2pOW'
+2026-04-10 15:44:45,262 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:45,262 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:45,262 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:45,933 | DEBUG | response code=200
+2026-04-10 15:44:45,933 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:45,933 | DEBUG |    Exiting get()
+2026-04-10 15:44:45,935 | DEBUG | BPT.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:45,939 | DEBUG | BPT.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:45,944 | DEBUG | BPT.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:45,950 | DEBUG | BPT.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:45,950 | DEBUG |   Exiting history()
+2026-04-10 15:44:45,950 | DEBUG |  Exiting history()
+2026-04-10 15:44:45,951 | DEBUG |  Entering history()
+2026-04-10 15:44:45,951 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AAPL', 1, 0])
+2026-04-10 15:44:45,952 | DEBUG |   Entering history()
+2026-04-10 15:44:45,952 | DEBUG | AAPL: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:45,952 | DEBUG |    Entering get()
+2026-04-10 15:44:45,952 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:45,952 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/AAPL
+2026-04-10 15:44:45,952 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:45,952 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:45,952 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:45,953 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:45,953 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:45,953 | DEBUG | reusing cookie
+2026-04-10 15:44:45,953 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:45,953 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:45,953 | DEBUG | reusing crumb
+2026-04-10 15:44:45,953 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:45,953 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:45,953 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:46,133 | DEBUG | response code=200
+2026-04-10 15:44:46,133 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:46,133 | DEBUG |    Exiting get()
+2026-04-10 15:44:46,134 | DEBUG | AAPL: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:46,136 | DEBUG | AAPL: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:46,138 | DEBUG | AAPL: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:46,144 | DEBUG | AAPL: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:46,144 | DEBUG |   Exiting history()
+2026-04-10 15:44:46,144 | DEBUG |  Exiting history()
+2026-04-10 15:44:46,145 | DEBUG |  Entering history()
+2026-04-10 15:44:46,145 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['FCX', 1, 0])
+2026-04-10 15:44:46,145 | DEBUG |   Entering history()
+2026-04-10 15:44:46,145 | DEBUG | FCX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:46,145 | DEBUG |    Entering get()
+2026-04-10 15:44:46,145 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:46,145 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/FCX
+2026-04-10 15:44:46,145 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:46,145 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:46,145 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:46,145 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:46,146 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:46,146 | DEBUG | reusing cookie
+2026-04-10 15:44:46,146 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:46,146 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:46,146 | DEBUG | reusing crumb
+2026-04-10 15:44:46,146 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:46,146 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:46,146 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:46,314 | DEBUG | response code=200
+2026-04-10 15:44:46,314 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:46,314 | DEBUG |    Exiting get()
+2026-04-10 15:44:46,316 | DEBUG | FCX: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:46,317 | DEBUG | FCX: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:46,319 | DEBUG | FCX: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:46,324 | DEBUG | FCX: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:46,325 | DEBUG |   Exiting history()
+2026-04-10 15:44:46,325 | DEBUG |  Exiting history()
+2026-04-10 15:44:46,325 | DEBUG |  Entering history()
+2026-04-10 15:44:46,325 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['WDS.AX', 1, 0])
+2026-04-10 15:44:46,325 | DEBUG |   Entering history()
+2026-04-10 15:44:46,325 | DEBUG | WDS.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:46,326 | DEBUG |    Entering get()
+2026-04-10 15:44:46,326 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:46,326 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/WDS.AX
+2026-04-10 15:44:46,326 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:46,326 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:46,326 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:46,326 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:46,326 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:46,326 | DEBUG | reusing cookie
+2026-04-10 15:44:46,326 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:46,326 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:46,326 | DEBUG | reusing crumb
+2026-04-10 15:44:46,326 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:46,326 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:46,326 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:46,521 | DEBUG | response code=200
+2026-04-10 15:44:46,521 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:46,521 | DEBUG |    Exiting get()
+2026-04-10 15:44:46,522 | DEBUG | WDS.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:46,523 | DEBUG | WDS.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:46,526 | DEBUG | WDS.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:46,531 | DEBUG | WDS.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:46,531 | DEBUG |   Exiting history()
+2026-04-10 15:44:46,531 | DEBUG |  Exiting history()
+2026-04-10 15:44:46,531 | DEBUG |  Entering history()
+2026-04-10 15:44:46,531 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['STO.AX', 1, 0])
+2026-04-10 15:44:46,532 | DEBUG |   Entering history()
+2026-04-10 15:44:46,532 | DEBUG | STO.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:46,532 | DEBUG |    Entering get()
+2026-04-10 15:44:46,532 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:46,532 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/STO.AX
+2026-04-10 15:44:46,532 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:46,532 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:46,532 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:46,532 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:46,532 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:46,532 | DEBUG | reusing cookie
+2026-04-10 15:44:46,532 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:46,532 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:46,532 | DEBUG | reusing crumb
+2026-04-10 15:44:46,532 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:46,532 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:46,532 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:46,725 | DEBUG | response code=200
+2026-04-10 15:44:46,725 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:46,725 | DEBUG |    Exiting get()
+2026-04-10 15:44:46,726 | DEBUG | STO.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:46,727 | DEBUG | STO.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:46,729 | DEBUG | STO.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:46,736 | DEBUG | STO.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:46,736 | DEBUG |   Exiting history()
+2026-04-10 15:44:46,737 | DEBUG |  Exiting history()
+2026-04-10 15:44:46,737 | DEBUG |  Entering history()
+2026-04-10 15:44:46,737 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ENPH', 1, 0])
+2026-04-10 15:44:46,737 | DEBUG |   Entering history()
+2026-04-10 15:44:46,738 | DEBUG | ENPH: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:46,738 | DEBUG |    Entering get()
+2026-04-10 15:44:46,738 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:46,738 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/ENPH
+2026-04-10 15:44:46,738 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:46,738 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:46,738 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:46,738 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:46,738 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:46,738 | DEBUG | reusing cookie
+2026-04-10 15:44:46,738 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:46,738 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:46,738 | DEBUG | reusing crumb
+2026-04-10 15:44:46,738 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:46,738 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:46,738 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:46,877 | DEBUG | response code=200
+2026-04-10 15:44:46,878 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:46,878 | DEBUG |    Exiting get()
+2026-04-10 15:44:46,878 | DEBUG | ENPH: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:46,879 | DEBUG | ENPH: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:46,881 | DEBUG | ENPH: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:46,886 | DEBUG | ENPH: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:46,887 | DEBUG |   Exiting history()
+2026-04-10 15:44:46,887 | DEBUG |  Exiting history()
+2026-04-10 15:44:46,887 | DEBUG |  Entering history()
+2026-04-10 15:44:46,887 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['XRO.AX', 1, 0])
+2026-04-10 15:44:46,887 | DEBUG |   Entering history()
+2026-04-10 15:44:46,887 | DEBUG | XRO.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:46,887 | DEBUG |    Entering get()
+2026-04-10 15:44:46,887 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:46,887 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/XRO.AX
+2026-04-10 15:44:46,888 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:46,888 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:46,888 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:46,888 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:46,888 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:46,888 | DEBUG | reusing cookie
+2026-04-10 15:44:46,888 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:46,888 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:46,888 | DEBUG | reusing crumb
+2026-04-10 15:44:46,888 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:46,888 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:46,888 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:47,025 | DEBUG | response code=200
+2026-04-10 15:44:47,026 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:47,026 | DEBUG |    Exiting get()
+2026-04-10 15:44:47,027 | DEBUG | XRO.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:47,028 | DEBUG | XRO.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:47,030 | DEBUG | XRO.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:47,034 | DEBUG | XRO.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:47,035 | DEBUG |   Exiting history()
+2026-04-10 15:44:47,035 | DEBUG |  Exiting history()
+2026-04-10 15:44:47,035 | DEBUG |  Entering history()
+2026-04-10 15:44:47,035 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NEM', 1, 0])
+2026-04-10 15:44:47,035 | DEBUG |   Entering history()
+2026-04-10 15:44:47,035 | DEBUG | NEM: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,035 | DEBUG |    Entering get()
+2026-04-10 15:44:47,036 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:47,036 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/NEM
+2026-04-10 15:44:47,036 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,036 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:47,036 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:47,036 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,036 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:47,036 | DEBUG | reusing cookie
+2026-04-10 15:44:47,036 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:47,036 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:47,036 | DEBUG | reusing crumb
+2026-04-10 15:44:47,036 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:47,036 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,036 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:47,229 | DEBUG | response code=200
+2026-04-10 15:44:47,229 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:47,229 | DEBUG |    Exiting get()
+2026-04-10 15:44:47,230 | DEBUG | NEM: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:47,231 | DEBUG | NEM: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:47,234 | DEBUG | NEM: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:47,238 | DEBUG | NEM: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:47,238 | DEBUG |   Exiting history()
+2026-04-10 15:44:47,238 | DEBUG |  Exiting history()
+2026-04-10 15:44:47,239 | DEBUG |  Entering history()
+2026-04-10 15:44:47,239 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['FSLR', 1, 0])
+2026-04-10 15:44:47,239 | DEBUG |   Entering history()
+2026-04-10 15:44:47,239 | DEBUG | FSLR: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,239 | DEBUG |    Entering get()
+2026-04-10 15:44:47,239 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:47,239 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/FSLR
+2026-04-10 15:44:47,239 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,239 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:47,239 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:47,239 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,239 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:47,239 | DEBUG | reusing cookie
+2026-04-10 15:44:47,240 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:47,240 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:47,240 | DEBUG | reusing crumb
+2026-04-10 15:44:47,240 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:47,240 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,240 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:47,373 | DEBUG | response code=200
+2026-04-10 15:44:47,373 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:47,373 | DEBUG |    Exiting get()
+2026-04-10 15:44:47,375 | DEBUG | FSLR: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:47,376 | DEBUG | FSLR: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:47,379 | DEBUG | FSLR: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:47,385 | DEBUG | FSLR: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:47,385 | DEBUG |   Exiting history()
+2026-04-10 15:44:47,385 | DEBUG |  Exiting history()
+2026-04-10 15:44:47,385 | DEBUG |  Entering history()
+2026-04-10 15:44:47,385 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ORG.AX', 1, 0])
+2026-04-10 15:44:47,386 | DEBUG |   Entering history()
+2026-04-10 15:44:47,386 | DEBUG | ORG.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,386 | DEBUG |    Entering get()
+2026-04-10 15:44:47,386 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:47,386 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/ORG.AX
+2026-04-10 15:44:47,386 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,386 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:47,386 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:47,386 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,386 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:47,386 | DEBUG | reusing cookie
+2026-04-10 15:44:47,386 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:47,386 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:47,386 | DEBUG | reusing crumb
+2026-04-10 15:44:47,386 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:47,386 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,386 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:47,549 | DEBUG | response code=200
+2026-04-10 15:44:47,549 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:47,549 | DEBUG |    Exiting get()
+2026-04-10 15:44:47,551 | DEBUG | ORG.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:47,552 | DEBUG | ORG.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:47,554 | DEBUG | ORG.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:47,560 | DEBUG | ORG.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:47,561 | DEBUG |   Exiting history()
+2026-04-10 15:44:47,561 | DEBUG |  Exiting history()
+2026-04-10 15:44:47,561 | DEBUG |  Entering history()
+2026-04-10 15:44:47,561 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['WTC.AX', 1, 0])
+2026-04-10 15:44:47,561 | DEBUG |   Entering history()
+2026-04-10 15:44:47,561 | DEBUG | WTC.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,561 | DEBUG |    Entering get()
+2026-04-10 15:44:47,562 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:47,562 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/WTC.AX
+2026-04-10 15:44:47,562 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,562 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:47,562 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:47,562 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,562 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:47,562 | DEBUG | reusing cookie
+2026-04-10 15:44:47,562 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:47,562 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:47,562 | DEBUG | reusing crumb
+2026-04-10 15:44:47,562 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:47,562 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,562 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:47,714 | DEBUG | response code=200
+2026-04-10 15:44:47,714 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:47,714 | DEBUG |    Exiting get()
+2026-04-10 15:44:47,715 | DEBUG | WTC.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:47,716 | DEBUG | WTC.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:47,721 | DEBUG | WTC.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:47,727 | DEBUG | WTC.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:47,727 | DEBUG |   Exiting history()
+2026-04-10 15:44:47,727 | DEBUG |  Exiting history()
+2026-04-10 15:44:47,727 | DEBUG |  Entering history()
+2026-04-10 15:44:47,727 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['WHC.AX', 1, 0])
+2026-04-10 15:44:47,728 | DEBUG |   Entering history()
+2026-04-10 15:44:47,728 | DEBUG | WHC.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,728 | DEBUG |    Entering get()
+2026-04-10 15:44:47,728 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:47,728 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/WHC.AX
+2026-04-10 15:44:47,728 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,728 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:47,728 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:47,728 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,728 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:47,728 | DEBUG | reusing cookie
+2026-04-10 15:44:47,728 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:47,728 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:47,728 | DEBUG | reusing crumb
+2026-04-10 15:44:47,729 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:47,729 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,729 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:47,897 | DEBUG | response code=200
+2026-04-10 15:44:47,897 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:47,897 | DEBUG |    Exiting get()
+2026-04-10 15:44:47,899 | DEBUG | WHC.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:47,900 | DEBUG | WHC.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:47,902 | DEBUG | WHC.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:47,907 | DEBUG | WHC.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:47,907 | DEBUG |   Exiting history()
+2026-04-10 15:44:47,907 | DEBUG |  Exiting history()
+2026-04-10 15:44:47,907 | DEBUG |  Entering history()
+2026-04-10 15:44:47,907 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['RIO.AX', 1, 0])
+2026-04-10 15:44:47,908 | DEBUG |   Entering history()
+2026-04-10 15:44:47,908 | DEBUG | RIO.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,908 | DEBUG |    Entering get()
+2026-04-10 15:44:47,908 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:47,908 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/RIO.AX
+2026-04-10 15:44:47,908 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:47,908 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:47,908 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:47,908 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,908 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:47,908 | DEBUG | reusing cookie
+2026-04-10 15:44:47,908 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:47,908 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:47,908 | DEBUG | reusing crumb
+2026-04-10 15:44:47,908 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:47,908 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:47,908 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:48,089 | DEBUG | response code=200
+2026-04-10 15:44:48,089 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:48,089 | DEBUG |    Exiting get()
+2026-04-10 15:44:48,090 | DEBUG | RIO.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:48,091 | DEBUG | RIO.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:48,094 | DEBUG | RIO.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:48,100 | DEBUG | RIO.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:48,100 | DEBUG |   Exiting history()
+2026-04-10 15:44:48,100 | DEBUG |  Exiting history()
+2026-04-10 15:44:48,100 | DEBUG |  Entering history()
+2026-04-10 15:44:48,100 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['S32.AX', 1, 0])
+2026-04-10 15:44:48,101 | DEBUG |   Entering history()
+2026-04-10 15:44:48,101 | DEBUG | S32.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:48,101 | DEBUG |    Entering get()
+2026-04-10 15:44:48,101 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:48,101 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/S32.AX
+2026-04-10 15:44:48,101 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:48,101 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:48,101 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:48,101 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:48,101 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:48,101 | DEBUG | reusing cookie
+2026-04-10 15:44:48,101 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:48,101 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:48,101 | DEBUG | reusing crumb
+2026-04-10 15:44:48,101 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:48,101 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:48,101 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:48,257 | DEBUG | response code=200
+2026-04-10 15:44:48,257 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:48,257 | DEBUG |    Exiting get()
+2026-04-10 15:44:48,258 | DEBUG | S32.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:48,258 | DEBUG | S32.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:48,261 | DEBUG | S32.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:48,266 | DEBUG | S32.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:48,267 | DEBUG |   Exiting history()
+2026-04-10 15:44:48,267 | DEBUG |  Exiting history()
+2026-04-10 15:44:48,267 | DEBUG |  Entering history()
+2026-04-10 15:44:48,268 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['QUB.AX', 1, 0])
+2026-04-10 15:44:48,268 | DEBUG |   Entering history()
+2026-04-10 15:44:48,268 | DEBUG | QUB.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:48,268 | DEBUG |    Entering get()
+2026-04-10 15:44:48,268 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:48,268 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/QUB.AX
+2026-04-10 15:44:48,268 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:48,268 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:48,268 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:48,268 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:48,268 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:48,268 | DEBUG | reusing cookie
+2026-04-10 15:44:48,268 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:48,268 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:48,269 | DEBUG | reusing crumb
+2026-04-10 15:44:48,269 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:48,269 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:48,269 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:48,433 | DEBUG | response code=200
+2026-04-10 15:44:48,433 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:48,433 | DEBUG |    Exiting get()
+2026-04-10 15:44:48,434 | DEBUG | QUB.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:48,435 | DEBUG | QUB.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:48,438 | DEBUG | QUB.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:48,443 | DEBUG | QUB.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:48,443 | DEBUG |   Exiting history()
+2026-04-10 15:44:48,443 | DEBUG |  Exiting history()
+2026-04-10 15:44:48,443 | DEBUG |  Entering history()
+2026-04-10 15:44:48,444 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ZIM', 1, 0])
+2026-04-10 15:44:48,444 | DEBUG |   Entering history()
+2026-04-10 15:44:48,444 | DEBUG | ZIM: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:48,444 | DEBUG |    Entering get()
+2026-04-10 15:44:48,444 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:48,444 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/ZIM
+2026-04-10 15:44:48,444 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:48,444 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:48,444 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:48,444 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:48,444 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:48,444 | DEBUG | reusing cookie
+2026-04-10 15:44:48,445 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:48,445 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:48,445 | DEBUG | reusing crumb
+2026-04-10 15:44:48,445 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:48,445 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:48,445 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:48,597 | DEBUG | response code=200
+2026-04-10 15:44:48,597 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:48,597 | DEBUG |    Exiting get()
+2026-04-10 15:44:48,599 | DEBUG | ZIM: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:48,599 | DEBUG | ZIM: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:48,604 | DEBUG | ZIM: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:48,609 | DEBUG | ZIM: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:48,609 | DEBUG |   Exiting history()
+2026-04-10 15:44:48,609 | DEBUG |  Exiting history()
+2026-04-10 15:44:48,609 | DEBUG |  Entering history()
+2026-04-10 15:44:48,610 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['TNE.AX', 1, 0])
+2026-04-10 15:44:48,610 | DEBUG |   Entering history()
+2026-04-10 15:44:48,610 | DEBUG | TNE.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:48,610 | DEBUG |    Entering get()
+2026-04-10 15:44:48,610 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:48,610 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/TNE.AX
+2026-04-10 15:44:48,610 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:48,610 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:48,610 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:48,610 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:48,610 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:48,610 | DEBUG | reusing cookie
+2026-04-10 15:44:48,610 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:48,610 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:48,610 | DEBUG | reusing crumb
+2026-04-10 15:44:48,611 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:48,611 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:48,611 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:48,793 | DEBUG | response code=200
+2026-04-10 15:44:48,793 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:48,793 | DEBUG |    Exiting get()
+2026-04-10 15:44:48,794 | DEBUG | TNE.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:48,795 | DEBUG | TNE.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:48,797 | DEBUG | TNE.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:48,802 | DEBUG | TNE.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:48,802 | DEBUG |   Exiting history()
+2026-04-10 15:44:48,802 | DEBUG |  Exiting history()
+2026-04-10 15:44:48,802 | DEBUG |  Entering history()
+2026-04-10 15:44:48,802 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['BHP.AX', 1, 0])
+2026-04-10 15:44:48,803 | DEBUG |   Entering history()
+2026-04-10 15:44:48,803 | DEBUG | BHP.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:48,803 | DEBUG |    Entering get()
+2026-04-10 15:44:48,803 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:48,803 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/BHP.AX
+2026-04-10 15:44:48,803 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:48,803 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:48,803 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:48,803 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:48,803 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:48,803 | DEBUG | reusing cookie
+2026-04-10 15:44:48,803 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:48,803 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:48,803 | DEBUG | reusing crumb
+2026-04-10 15:44:48,803 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:48,803 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:48,803 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:48,997 | DEBUG | response code=200
+2026-04-10 15:44:48,997 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:48,997 | DEBUG |    Exiting get()
+2026-04-10 15:44:48,998 | DEBUG | BHP.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:48,999 | DEBUG | BHP.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:49,001 | DEBUG | BHP.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:49,006 | DEBUG | BHP.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:49,006 | DEBUG |   Exiting history()
+2026-04-10 15:44:49,006 | DEBUG |  Exiting history()
+2026-04-10 15:44:49,006 | DEBUG |  Entering history()
+2026-04-10 15:44:49,006 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['TCL.AX', 1, 0])
+2026-04-10 15:44:49,007 | DEBUG |   Entering history()
+2026-04-10 15:44:49,007 | DEBUG | TCL.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,007 | DEBUG |    Entering get()
+2026-04-10 15:44:49,007 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:49,007 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/TCL.AX
+2026-04-10 15:44:49,007 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,007 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:49,007 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:49,007 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,007 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:49,007 | DEBUG | reusing cookie
+2026-04-10 15:44:49,007 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:49,007 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:49,007 | DEBUG | reusing crumb
+2026-04-10 15:44:49,007 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:49,007 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,008 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:49,174 | DEBUG | response code=200
+2026-04-10 15:44:49,174 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:49,174 | DEBUG |    Exiting get()
+2026-04-10 15:44:49,175 | DEBUG | TCL.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:49,176 | DEBUG | TCL.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:49,179 | DEBUG | TCL.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:49,183 | DEBUG | TCL.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:49,183 | DEBUG |   Exiting history()
+2026-04-10 15:44:49,183 | DEBUG |  Exiting history()
+2026-04-10 15:44:49,184 | DEBUG |  Entering history()
+2026-04-10 15:44:49,184 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NEE', 1, 0])
+2026-04-10 15:44:49,184 | DEBUG |   Entering history()
+2026-04-10 15:44:49,184 | DEBUG | NEE: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,184 | DEBUG |    Entering get()
+2026-04-10 15:44:49,184 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:49,184 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/NEE
+2026-04-10 15:44:49,184 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,184 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:49,184 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:49,184 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,185 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:49,185 | DEBUG | reusing cookie
+2026-04-10 15:44:49,185 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:49,185 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:49,185 | DEBUG | reusing crumb
+2026-04-10 15:44:49,185 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:49,185 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,185 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:49,406 | DEBUG | response code=200
+2026-04-10 15:44:49,406 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:49,406 | DEBUG |    Exiting get()
+2026-04-10 15:44:49,408 | DEBUG | NEE: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:49,409 | DEBUG | NEE: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:49,411 | DEBUG | NEE: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:49,416 | DEBUG | NEE: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:49,417 | DEBUG |   Exiting history()
+2026-04-10 15:44:49,417 | DEBUG |  Exiting history()
+2026-04-10 15:44:49,417 | DEBUG |  Entering history()
+2026-04-10 15:44:49,417 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['IGO.AX', 1, 0])
+2026-04-10 15:44:49,417 | DEBUG |   Entering history()
+2026-04-10 15:44:49,417 | DEBUG | IGO.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,418 | DEBUG |    Entering get()
+2026-04-10 15:44:49,418 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:49,418 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/IGO.AX
+2026-04-10 15:44:49,418 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,418 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:49,418 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:49,418 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,418 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:49,418 | DEBUG | reusing cookie
+2026-04-10 15:44:49,418 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:49,418 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:49,418 | DEBUG | reusing crumb
+2026-04-10 15:44:49,418 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:49,418 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,418 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:49,586 | DEBUG | response code=200
+2026-04-10 15:44:49,586 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:49,586 | DEBUG |    Exiting get()
+2026-04-10 15:44:49,587 | DEBUG | IGO.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:49,588 | DEBUG | IGO.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:49,591 | DEBUG | IGO.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:49,596 | DEBUG | IGO.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:49,596 | DEBUG |   Exiting history()
+2026-04-10 15:44:49,596 | DEBUG |  Exiting history()
+2026-04-10 15:44:49,596 | DEBUG |  Entering history()
+2026-04-10 15:44:49,596 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MIN.AX', 1, 0])
+2026-04-10 15:44:49,597 | DEBUG |   Entering history()
+2026-04-10 15:44:49,597 | DEBUG | MIN.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,597 | DEBUG |    Entering get()
+2026-04-10 15:44:49,597 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:49,597 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/MIN.AX
+2026-04-10 15:44:49,597 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,597 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:49,597 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:49,597 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,597 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:49,597 | DEBUG | reusing cookie
+2026-04-10 15:44:49,597 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:49,597 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:49,597 | DEBUG | reusing crumb
+2026-04-10 15:44:49,597 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:49,597 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,597 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:49,769 | DEBUG | response code=200
+2026-04-10 15:44:49,769 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:49,769 | DEBUG |    Exiting get()
+2026-04-10 15:44:49,770 | DEBUG | MIN.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:49,771 | DEBUG | MIN.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:49,774 | DEBUG | MIN.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:49,778 | DEBUG | MIN.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:49,779 | DEBUG |   Exiting history()
+2026-04-10 15:44:49,779 | DEBUG |  Exiting history()
+2026-04-10 15:44:49,779 | DEBUG |  Entering history()
+2026-04-10 15:44:49,779 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SBLK', 1, 0])
+2026-04-10 15:44:49,779 | DEBUG |   Entering history()
+2026-04-10 15:44:49,779 | DEBUG | SBLK: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,780 | DEBUG |    Entering get()
+2026-04-10 15:44:49,780 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:49,780 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/SBLK
+2026-04-10 15:44:49,780 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,780 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:49,780 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:49,780 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,780 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:49,780 | DEBUG | reusing cookie
+2026-04-10 15:44:49,780 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:49,780 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:49,780 | DEBUG | reusing crumb
+2026-04-10 15:44:49,780 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:49,780 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,780 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:49,945 | DEBUG | response code=200
+2026-04-10 15:44:49,945 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:49,945 | DEBUG |    Exiting get()
+2026-04-10 15:44:49,946 | DEBUG | SBLK: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:49,947 | DEBUG | SBLK: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:49,950 | DEBUG | Adding out-of-range Dividends @ 2026-03-09 in new prices row of NaNs
+2026-04-10 15:44:49,954 | DEBUG | SBLK: OHLC after combining events: 2026-03-09 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:49,959 | DEBUG | SBLK: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:49,959 | DEBUG |   Exiting history()
+2026-04-10 15:44:49,959 | DEBUG |  Exiting history()
+2026-04-10 15:44:49,960 | DEBUG |  Entering history()
+2026-04-10 15:44:49,960 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NXT.AX', 1, 0])
+2026-04-10 15:44:49,960 | DEBUG |   Entering history()
+2026-04-10 15:44:49,960 | DEBUG | NXT.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,960 | DEBUG |    Entering get()
+2026-04-10 15:44:49,960 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:49,960 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/NXT.AX
+2026-04-10 15:44:49,960 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:49,960 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:49,960 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:49,960 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,961 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:49,961 | DEBUG | reusing cookie
+2026-04-10 15:44:49,961 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:49,961 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:49,961 | DEBUG | reusing crumb
+2026-04-10 15:44:49,961 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:49,961 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:49,961 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:50,101 | DEBUG | response code=200
+2026-04-10 15:44:50,101 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:50,101 | DEBUG |    Exiting get()
+2026-04-10 15:44:50,102 | DEBUG | NXT.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:50,103 | DEBUG | NXT.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:50,105 | DEBUG | NXT.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:50,110 | DEBUG | NXT.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:50,110 | DEBUG |   Exiting history()
+2026-04-10 15:44:50,110 | DEBUG |  Exiting history()
+2026-04-10 15:44:50,110 | DEBUG |  Entering history()
+2026-04-10 15:44:50,111 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['FMG.AX', 1, 0])
+2026-04-10 15:44:50,111 | DEBUG |   Entering history()
+2026-04-10 15:44:50,111 | DEBUG | FMG.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:50,111 | DEBUG |    Entering get()
+2026-04-10 15:44:50,111 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:50,111 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/FMG.AX
+2026-04-10 15:44:50,111 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:50,111 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:50,111 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:50,111 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:50,111 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:50,111 | DEBUG | reusing cookie
+2026-04-10 15:44:50,111 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:50,111 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:50,112 | DEBUG | reusing crumb
+2026-04-10 15:44:50,112 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:50,112 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:50,112 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:50,273 | DEBUG | response code=200
+2026-04-10 15:44:50,273 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:50,273 | DEBUG |    Exiting get()
+2026-04-10 15:44:50,274 | DEBUG | FMG.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:50,275 | DEBUG | FMG.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:50,278 | DEBUG | FMG.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:50,282 | DEBUG | FMG.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:50,283 | DEBUG |   Exiting history()
+2026-04-10 15:44:50,283 | DEBUG |  Exiting history()
+2026-04-10 15:44:50,283 | DEBUG |  Entering history()
+2026-04-10 15:44:50,283 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['XOM', 1, 0])
+2026-04-10 15:44:50,283 | DEBUG |   Entering history()
+2026-04-10 15:44:50,283 | DEBUG | XOM: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:50,284 | DEBUG |    Entering get()
+2026-04-10 15:44:50,284 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:50,284 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/XOM
+2026-04-10 15:44:50,284 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:50,284 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:50,284 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:50,284 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:50,284 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:50,284 | DEBUG | reusing cookie
+2026-04-10 15:44:50,284 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:50,284 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:50,284 | DEBUG | reusing crumb
+2026-04-10 15:44:50,284 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:50,284 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:50,284 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:50,517 | DEBUG | response code=200
+2026-04-10 15:44:50,517 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:50,517 | DEBUG |    Exiting get()
+2026-04-10 15:44:50,518 | DEBUG | XOM: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:50,519 | DEBUG | XOM: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:50,521 | DEBUG | XOM: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:50,526 | DEBUG | XOM: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:50,526 | DEBUG |   Exiting history()
+2026-04-10 15:44:50,526 | DEBUG |  Exiting history()
+2026-04-10 15:44:50,526 | DEBUG |  Entering history()
+2026-04-10 15:44:50,527 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NVDA', 1, 0])
+2026-04-10 15:44:50,527 | DEBUG |   Entering history()
+2026-04-10 15:44:50,527 | DEBUG | NVDA: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:50,527 | DEBUG |    Entering get()
+2026-04-10 15:44:50,527 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:50,527 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/NVDA
+2026-04-10 15:44:50,527 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:50,527 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:50,527 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:50,527 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:50,527 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:50,527 | DEBUG | reusing cookie
+2026-04-10 15:44:50,527 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:50,528 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:50,528 | DEBUG | reusing crumb
+2026-04-10 15:44:50,528 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:50,528 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:50,528 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:50,677 | DEBUG | response code=200
+2026-04-10 15:44:50,677 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:50,677 | DEBUG |    Exiting get()
+2026-04-10 15:44:50,678 | DEBUG | NVDA: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:50,679 | DEBUG | NVDA: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:50,683 | DEBUG | NVDA: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:50,688 | DEBUG | NVDA: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:50,689 | DEBUG |   Exiting history()
+2026-04-10 15:44:50,689 | DEBUG |  Exiting history()
+2026-04-10 15:44:50,689 | DEBUG |  Entering history()
+2026-04-10 15:44:50,689 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['VALE', 1, 0])
+2026-04-10 15:44:50,689 | DEBUG |   Entering history()
+2026-04-10 15:44:50,689 | DEBUG | VALE: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:50,690 | DEBUG |    Entering get()
+2026-04-10 15:44:50,690 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:50,690 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/VALE
+2026-04-10 15:44:50,690 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:50,690 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:50,690 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:50,690 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:50,690 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:50,690 | DEBUG | reusing cookie
+2026-04-10 15:44:50,690 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:50,690 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:50,690 | DEBUG | reusing crumb
+2026-04-10 15:44:50,690 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:50,690 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:50,690 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:50,849 | DEBUG | response code=200
+2026-04-10 15:44:50,849 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:50,849 | DEBUG |    Exiting get()
+2026-04-10 15:44:50,850 | DEBUG | VALE: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:50,851 | DEBUG | VALE: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:50,854 | DEBUG | VALE: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:50,858 | DEBUG | VALE: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:50,859 | DEBUG |   Exiting history()
+2026-04-10 15:44:50,859 | DEBUG |  Exiting history()
+2026-04-10 15:44:50,859 | DEBUG |  Entering history()
+2026-04-10 15:44:50,859 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['CVX', 1, 0])
+2026-04-10 15:44:50,859 | DEBUG |   Entering history()
+2026-04-10 15:44:50,859 | DEBUG | CVX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:50,859 | DEBUG |    Entering get()
+2026-04-10 15:44:50,860 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:50,860 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/CVX
+2026-04-10 15:44:50,860 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:50,860 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:50,860 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:50,860 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:50,860 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:50,860 | DEBUG | reusing cookie
+2026-04-10 15:44:50,860 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:50,860 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:50,860 | DEBUG | reusing crumb
+2026-04-10 15:44:50,860 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:50,860 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:50,860 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:51,069 | DEBUG | response code=200
+2026-04-10 15:44:51,069 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:51,069 | DEBUG |    Exiting get()
+2026-04-10 15:44:51,070 | DEBUG | CVX: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:51,071 | DEBUG | CVX: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:51,073 | DEBUG | CVX: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:51,078 | DEBUG | CVX: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:51,078 | DEBUG |   Exiting history()
+2026-04-10 15:44:51,078 | DEBUG |  Exiting history()
+2026-04-10 15:44:51,078 | DEBUG |  Entering history()
+2026-04-10 15:44:51,079 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ASX.AX', 1, 0])
+2026-04-10 15:44:51,079 | DEBUG |   Entering history()
+2026-04-10 15:44:51,079 | DEBUG | ASX.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:51,079 | DEBUG |    Entering get()
+2026-04-10 15:44:51,079 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:51,079 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/ASX.AX
+2026-04-10 15:44:51,079 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:51,079 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:51,079 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:51,079 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:51,080 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:51,080 | DEBUG | reusing cookie
+2026-04-10 15:44:51,080 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:51,080 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:51,080 | DEBUG | reusing crumb
+2026-04-10 15:44:51,080 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:51,080 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:51,080 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:51,249 | DEBUG | response code=200
+2026-04-10 15:44:51,249 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:51,249 | DEBUG |    Exiting get()
+2026-04-10 15:44:51,250 | DEBUG | ASX.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:51,251 | DEBUG | ASX.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:51,253 | DEBUG | ASX.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:51,259 | DEBUG | ASX.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:51,259 | DEBUG |   Exiting history()
+2026-04-10 15:44:51,259 | DEBUG |  Exiting history()
+2026-04-10 15:44:51,259 | DEBUG |  Entering history()
+2026-04-10 15:44:51,260 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['TSLA', 1, 0])
+2026-04-10 15:44:51,260 | DEBUG |   Entering history()
+2026-04-10 15:44:51,260 | DEBUG | TSLA: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:51,260 | DEBUG |    Entering get()
+2026-04-10 15:44:51,260 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:51,260 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/TSLA
+2026-04-10 15:44:51,260 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:51,260 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:51,260 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:51,260 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:51,260 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:51,260 | DEBUG | reusing cookie
+2026-04-10 15:44:51,260 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:51,261 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:51,261 | DEBUG | reusing crumb
+2026-04-10 15:44:51,261 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:51,261 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:51,261 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:51,401 | DEBUG | response code=200
+2026-04-10 15:44:51,401 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:51,401 | DEBUG |    Exiting get()
+2026-04-10 15:44:51,402 | DEBUG | TSLA: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:51,403 | DEBUG | TSLA: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:51,405 | DEBUG | TSLA: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:51,410 | DEBUG | TSLA: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:51,411 | DEBUG |   Exiting history()
+2026-04-10 15:44:51,411 | DEBUG |  Exiting history()
+2026-04-10 15:44:51,411 | DEBUG |  Entering history()
+2026-04-10 15:44:51,411 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MATX', 1, 0])
+2026-04-10 15:44:51,411 | DEBUG |   Entering history()
+2026-04-10 15:44:51,412 | DEBUG | MATX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:51,412 | DEBUG |    Entering get()
+2026-04-10 15:44:51,412 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:51,412 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/MATX
+2026-04-10 15:44:51,412 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:51,412 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:51,412 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:51,412 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:51,412 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:51,412 | DEBUG | reusing cookie
+2026-04-10 15:44:51,412 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:51,412 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:51,412 | DEBUG | reusing crumb
+2026-04-10 15:44:51,412 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:51,412 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:51,412 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:51,605 | DEBUG | response code=200
+2026-04-10 15:44:51,605 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:51,605 | DEBUG |    Exiting get()
+2026-04-10 15:44:51,606 | DEBUG | MATX: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:44:51,607 | DEBUG | MATX: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:44:51,609 | DEBUG | MATX: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:51,614 | DEBUG | MATX: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:44:51,614 | DEBUG |   Exiting history()
+2026-04-10 15:44:51,614 | DEBUG |  Exiting history()
+2026-04-10 15:44:51,615 | DEBUG |  Entering history()
+2026-04-10 15:44:51,615 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AGL.AX', 1, 0])
+2026-04-10 15:44:51,615 | DEBUG |   Entering history()
+2026-04-10 15:44:51,615 | DEBUG | AGL.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:51,615 | DEBUG |    Entering get()
+2026-04-10 15:44:51,615 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:51,615 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/AGL.AX
+2026-04-10 15:44:51,615 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:51,616 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:51,616 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:51,616 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:51,616 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:51,616 | DEBUG | reusing cookie
+2026-04-10 15:44:51,616 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:51,616 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:51,616 | DEBUG | reusing crumb
+2026-04-10 15:44:51,616 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:51,616 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:51,616 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:51,773 | DEBUG | response code=200
+2026-04-10 15:44:51,773 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:51,773 | DEBUG |    Exiting get()
+2026-04-10 15:44:51,775 | DEBUG | AGL.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:51,776 | DEBUG | AGL.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:51,778 | DEBUG | AGL.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:51,783 | DEBUG | AGL.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:51,783 | DEBUG |   Exiting history()
+2026-04-10 15:44:51,783 | DEBUG |  Exiting history()
+2026-04-10 15:44:51,783 | DEBUG |  Entering history()
+2026-04-10 15:44:51,784 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['REA.AX', 1, 0])
+2026-04-10 15:44:51,784 | DEBUG |   Entering history()
+2026-04-10 15:44:51,784 | DEBUG | REA.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:51,784 | DEBUG |    Entering get()
+2026-04-10 15:44:51,784 | DEBUG |     Entering _make_request()
+2026-04-10 15:44:51,784 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/REA.AX
+2026-04-10 15:44:51,784 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:44:51,784 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:44:51,784 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:44:51,784 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:44:51,784 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:44:51,784 | DEBUG | reusing cookie
+2026-04-10 15:44:51,784 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:44:51,784 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:44:51,784 | DEBUG | reusing crumb
+2026-04-10 15:44:51,784 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:44:51,784 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:44:51,785 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:44:52,126 | DEBUG | response code=200
+2026-04-10 15:44:52,126 | DEBUG |     Exiting _make_request()
+2026-04-10 15:44:52,126 | DEBUG |    Exiting get()
+2026-04-10 15:44:52,127 | DEBUG | REA.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:44:52,128 | DEBUG | REA.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:44:52,130 | DEBUG | REA.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:52,136 | DEBUG | REA.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:44:52,136 | DEBUG |   Exiting history()
+2026-04-10 15:44:52,136 | DEBUG |  Exiting history()
+2026-04-10 15:44:52,156 | DEBUG | Exiting download()
+2026-04-10 15:44:52,255 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:44:52,407 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154318657): is_file, is_modified
+2026-04-10 15:44:52,419 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:44:52,625 | DEBUG | matplotlib data path: /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/matplotlib/mpl-data
+2026-04-10 15:44:52,632 | DEBUG | CONFIGDIR=/Users/jeff/.matplotlib
+2026-04-10 15:44:52,633 | DEBUG | interactive is False
+2026-04-10 15:44:52,633 | DEBUG | platform is darwin
+2026-04-10 15:44:52,674 | DEBUG | CACHEDIR=/Users/jeff/.matplotlib
+2026-04-10 15:44:52,678 | DEBUG | Using fontManager instance from /Users/jeff/.matplotlib/fontlist-v390.json
+2026-04-10 15:44:58,709 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:44:58,748 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154318778): is_file, is_modified
+2026-04-10 15:44:58,785 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:00,713 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:45:00,790 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154318802): is_file, is_modified
+2026-04-10 15:45:00,790 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:00,826 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:45:00,834 | DEBUG | Entering download()
+2026-04-10 15:45:00,834 | DEBUG | Disabling multithreading because DEBUG logging enabled
+2026-04-10 15:45:00,836 | DEBUG |  Entering history()
+2026-04-10 15:45:00,837 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['BPT.AX', 1, 0])
+2026-04-10 15:45:00,838 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154318805): is_file, is_modified
+2026-04-10 15:45:00,839 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:00,844 | DEBUG |   Entering history()
+2026-04-10 15:45:00,845 | DEBUG | BPT.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:00,845 | DEBUG |    Entering get()
+2026-04-10 15:45:00,845 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:00,845 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/BPT.AX
+2026-04-10 15:45:00,845 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:00,846 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:00,846 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:00,846 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:00,846 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:00,846 | DEBUG | reusing cookie
+2026-04-10 15:45:00,846 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:00,846 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:00,846 | DEBUG | reusing crumb
+2026-04-10 15:45:00,846 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:00,847 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:00,847 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:01,341 | DEBUG | response code=200
+2026-04-10 15:45:01,341 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:01,341 | DEBUG |    Exiting get()
+2026-04-10 15:45:01,342 | DEBUG | BPT.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:01,343 | DEBUG | BPT.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:01,346 | DEBUG | BPT.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:01,351 | DEBUG | BPT.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:01,351 | DEBUG |   Exiting history()
+2026-04-10 15:45:01,351 | DEBUG |  Exiting history()
+2026-04-10 15:45:01,351 | DEBUG |  Entering history()
+2026-04-10 15:45:01,352 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AAPL', 1, 0])
+2026-04-10 15:45:01,352 | DEBUG |   Entering history()
+2026-04-10 15:45:01,352 | DEBUG | AAPL: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:01,352 | DEBUG |    Entering get()
+2026-04-10 15:45:01,352 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:01,352 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/AAPL
+2026-04-10 15:45:01,352 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:01,352 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:01,352 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:01,353 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:01,353 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:01,353 | DEBUG | reusing cookie
+2026-04-10 15:45:01,353 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:01,353 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:01,353 | DEBUG | reusing crumb
+2026-04-10 15:45:01,353 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:01,353 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:01,353 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:01,561 | DEBUG | response code=200
+2026-04-10 15:45:01,561 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:01,561 | DEBUG |    Exiting get()
+2026-04-10 15:45:01,562 | DEBUG | AAPL: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:01,563 | DEBUG | AAPL: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:01,565 | DEBUG | AAPL: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:01,572 | DEBUG | AAPL: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:01,572 | DEBUG |   Exiting history()
+2026-04-10 15:45:01,572 | DEBUG |  Exiting history()
+2026-04-10 15:45:01,572 | DEBUG |  Entering history()
+2026-04-10 15:45:01,573 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['FCX', 1, 0])
+2026-04-10 15:45:01,573 | DEBUG |   Entering history()
+2026-04-10 15:45:01,573 | DEBUG | FCX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:01,573 | DEBUG |    Entering get()
+2026-04-10 15:45:01,573 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:01,573 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/FCX
+2026-04-10 15:45:01,573 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:01,573 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:01,573 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:01,574 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:01,574 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:01,574 | DEBUG | reusing cookie
+2026-04-10 15:45:01,574 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:01,574 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:01,574 | DEBUG | reusing crumb
+2026-04-10 15:45:01,574 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:01,574 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:01,574 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:01,749 | DEBUG | response code=200
+2026-04-10 15:45:01,749 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:01,749 | DEBUG |    Exiting get()
+2026-04-10 15:45:01,750 | DEBUG | FCX: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:01,752 | DEBUG | FCX: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:01,754 | DEBUG | FCX: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:01,760 | DEBUG | FCX: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:01,760 | DEBUG |   Exiting history()
+2026-04-10 15:45:01,760 | DEBUG |  Exiting history()
+2026-04-10 15:45:01,760 | DEBUG |  Entering history()
+2026-04-10 15:45:01,761 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['WDS.AX', 1, 0])
+2026-04-10 15:45:01,761 | DEBUG |   Entering history()
+2026-04-10 15:45:01,761 | DEBUG | WDS.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:01,761 | DEBUG |    Entering get()
+2026-04-10 15:45:01,761 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:01,761 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/WDS.AX
+2026-04-10 15:45:01,761 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:01,761 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:01,761 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:01,761 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:01,761 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:01,761 | DEBUG | reusing cookie
+2026-04-10 15:45:01,761 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:01,761 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:01,762 | DEBUG | reusing crumb
+2026-04-10 15:45:01,762 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:01,762 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:01,762 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:02,004 | DEBUG | response code=200
+2026-04-10 15:45:02,004 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:02,004 | DEBUG |    Exiting get()
+2026-04-10 15:45:02,005 | DEBUG | WDS.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:02,006 | DEBUG | WDS.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:02,009 | DEBUG | WDS.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:02,014 | DEBUG | WDS.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:02,014 | DEBUG |   Exiting history()
+2026-04-10 15:45:02,014 | DEBUG |  Exiting history()
+2026-04-10 15:45:02,015 | DEBUG |  Entering history()
+2026-04-10 15:45:02,015 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['STO.AX', 1, 0])
+2026-04-10 15:45:02,016 | DEBUG |   Entering history()
+2026-04-10 15:45:02,016 | DEBUG | STO.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:02,016 | DEBUG |    Entering get()
+2026-04-10 15:45:02,016 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:02,016 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/STO.AX
+2026-04-10 15:45:02,016 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:02,016 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:02,016 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:02,016 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:02,016 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:02,016 | DEBUG | reusing cookie
+2026-04-10 15:45:02,017 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:02,017 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:02,017 | DEBUG | reusing crumb
+2026-04-10 15:45:02,017 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:02,017 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:02,017 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:02,204 | DEBUG | response code=200
+2026-04-10 15:45:02,204 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:02,204 | DEBUG |    Exiting get()
+2026-04-10 15:45:02,205 | DEBUG | STO.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:02,206 | DEBUG | STO.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:02,209 | DEBUG | STO.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:02,214 | DEBUG | STO.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:02,214 | DEBUG |   Exiting history()
+2026-04-10 15:45:02,214 | DEBUG |  Exiting history()
+2026-04-10 15:45:02,214 | DEBUG |  Entering history()
+2026-04-10 15:45:02,214 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ENPH', 1, 0])
+2026-04-10 15:45:02,215 | DEBUG |   Entering history()
+2026-04-10 15:45:02,215 | DEBUG | ENPH: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:02,215 | DEBUG |    Entering get()
+2026-04-10 15:45:02,215 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:02,215 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/ENPH
+2026-04-10 15:45:02,215 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:02,215 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:02,215 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:02,215 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:02,215 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:02,215 | DEBUG | reusing cookie
+2026-04-10 15:45:02,215 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:02,215 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:02,215 | DEBUG | reusing crumb
+2026-04-10 15:45:02,215 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:02,215 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:02,215 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:02,529 | DEBUG | response code=200
+2026-04-10 15:45:02,529 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:02,529 | DEBUG |    Exiting get()
+2026-04-10 15:45:02,531 | DEBUG | ENPH: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:02,532 | DEBUG | ENPH: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:02,534 | DEBUG | ENPH: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:02,539 | DEBUG | ENPH: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:02,539 | DEBUG |   Exiting history()
+2026-04-10 15:45:02,540 | DEBUG |  Exiting history()
+2026-04-10 15:45:02,540 | DEBUG |  Entering history()
+2026-04-10 15:45:02,540 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['XRO.AX', 1, 0])
+2026-04-10 15:45:02,540 | DEBUG |   Entering history()
+2026-04-10 15:45:02,540 | DEBUG | XRO.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:02,540 | DEBUG |    Entering get()
+2026-04-10 15:45:02,540 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:02,540 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/XRO.AX
+2026-04-10 15:45:02,540 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:02,541 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:02,541 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:02,541 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:02,541 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:02,541 | DEBUG | reusing cookie
+2026-04-10 15:45:02,541 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:02,541 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:02,541 | DEBUG | reusing crumb
+2026-04-10 15:45:02,541 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:02,541 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:02,541 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:02,677 | DEBUG | response code=200
+2026-04-10 15:45:02,677 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:02,677 | DEBUG |    Exiting get()
+2026-04-10 15:45:02,679 | DEBUG | XRO.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:02,679 | DEBUG | XRO.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:02,682 | DEBUG | XRO.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:02,687 | DEBUG | XRO.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:02,687 | DEBUG |   Exiting history()
+2026-04-10 15:45:02,687 | DEBUG |  Exiting history()
+2026-04-10 15:45:02,687 | DEBUG |  Entering history()
+2026-04-10 15:45:02,688 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NEM', 1, 0])
+2026-04-10 15:45:02,688 | DEBUG |   Entering history()
+2026-04-10 15:45:02,688 | DEBUG | NEM: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:02,688 | DEBUG |    Entering get()
+2026-04-10 15:45:02,688 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:02,688 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/NEM
+2026-04-10 15:45:02,688 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:02,688 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:02,688 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:02,688 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:02,688 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:02,689 | DEBUG | reusing cookie
+2026-04-10 15:45:02,689 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:02,689 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:02,689 | DEBUG | reusing crumb
+2026-04-10 15:45:02,689 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:02,689 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:02,689 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:02,901 | DEBUG | response code=200
+2026-04-10 15:45:02,901 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:02,901 | DEBUG |    Exiting get()
+2026-04-10 15:45:02,902 | DEBUG | NEM: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:02,903 | DEBUG | NEM: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:02,906 | DEBUG | NEM: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:02,910 | DEBUG | NEM: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:02,911 | DEBUG |   Exiting history()
+2026-04-10 15:45:02,911 | DEBUG |  Exiting history()
+2026-04-10 15:45:02,911 | DEBUG |  Entering history()
+2026-04-10 15:45:02,911 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['FSLR', 1, 0])
+2026-04-10 15:45:02,911 | DEBUG |   Entering history()
+2026-04-10 15:45:02,911 | DEBUG | FSLR: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:02,911 | DEBUG |    Entering get()
+2026-04-10 15:45:02,912 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:02,912 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/FSLR
+2026-04-10 15:45:02,912 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:02,912 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:02,912 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:02,912 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:02,912 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:02,912 | DEBUG | reusing cookie
+2026-04-10 15:45:02,912 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:02,912 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:02,912 | DEBUG | reusing crumb
+2026-04-10 15:45:02,912 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:02,912 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:02,912 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:03,228 | DEBUG | response code=200
+2026-04-10 15:45:03,228 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:03,228 | DEBUG |    Exiting get()
+2026-04-10 15:45:03,230 | DEBUG | FSLR: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:03,231 | DEBUG | FSLR: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:03,233 | DEBUG | FSLR: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:03,238 | DEBUG | FSLR: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:03,238 | DEBUG |   Exiting history()
+2026-04-10 15:45:03,238 | DEBUG |  Exiting history()
+2026-04-10 15:45:03,238 | DEBUG |  Entering history()
+2026-04-10 15:45:03,239 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ORG.AX', 1, 0])
+2026-04-10 15:45:03,239 | DEBUG |   Entering history()
+2026-04-10 15:45:03,239 | DEBUG | ORG.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:03,239 | DEBUG |    Entering get()
+2026-04-10 15:45:03,239 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:03,239 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/ORG.AX
+2026-04-10 15:45:03,239 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:03,239 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:03,239 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:03,239 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:03,239 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:03,239 | DEBUG | reusing cookie
+2026-04-10 15:45:03,240 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:03,240 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:03,240 | DEBUG | reusing crumb
+2026-04-10 15:45:03,240 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:03,240 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:03,240 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:03,449 | DEBUG | response code=200
+2026-04-10 15:45:03,449 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:03,449 | DEBUG |    Exiting get()
+2026-04-10 15:45:03,450 | DEBUG | ORG.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:03,451 | DEBUG | ORG.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:03,453 | DEBUG | ORG.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:03,458 | DEBUG | ORG.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:03,458 | DEBUG |   Exiting history()
+2026-04-10 15:45:03,459 | DEBUG |  Exiting history()
+2026-04-10 15:45:03,459 | DEBUG |  Entering history()
+2026-04-10 15:45:03,459 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['WTC.AX', 1, 0])
+2026-04-10 15:45:03,459 | DEBUG |   Entering history()
+2026-04-10 15:45:03,459 | DEBUG | WTC.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:03,459 | DEBUG |    Entering get()
+2026-04-10 15:45:03,459 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:03,459 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/WTC.AX
+2026-04-10 15:45:03,459 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:03,460 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:03,460 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:03,460 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:03,460 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:03,460 | DEBUG | reusing cookie
+2026-04-10 15:45:03,460 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:03,460 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:03,460 | DEBUG | reusing crumb
+2026-04-10 15:45:03,460 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:03,460 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:03,460 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:03,613 | DEBUG | response code=200
+2026-04-10 15:45:03,613 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:03,613 | DEBUG |    Exiting get()
+2026-04-10 15:45:03,615 | DEBUG | WTC.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:03,616 | DEBUG | WTC.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:03,620 | DEBUG | WTC.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:03,626 | DEBUG | WTC.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:03,626 | DEBUG |   Exiting history()
+2026-04-10 15:45:03,626 | DEBUG |  Exiting history()
+2026-04-10 15:45:03,626 | DEBUG |  Entering history()
+2026-04-10 15:45:03,627 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['WHC.AX', 1, 0])
+2026-04-10 15:45:03,627 | DEBUG |   Entering history()
+2026-04-10 15:45:03,627 | DEBUG | WHC.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:03,627 | DEBUG |    Entering get()
+2026-04-10 15:45:03,627 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:03,627 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/WHC.AX
+2026-04-10 15:45:03,627 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:03,627 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:03,627 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:03,627 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:03,627 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:03,627 | DEBUG | reusing cookie
+2026-04-10 15:45:03,627 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:03,627 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:03,627 | DEBUG | reusing crumb
+2026-04-10 15:45:03,628 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:03,628 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:03,628 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:03,985 | DEBUG | response code=200
+2026-04-10 15:45:03,985 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:03,985 | DEBUG |    Exiting get()
+2026-04-10 15:45:03,986 | DEBUG | WHC.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:03,987 | DEBUG | WHC.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:03,990 | DEBUG | WHC.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:03,995 | DEBUG | WHC.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:03,995 | DEBUG |   Exiting history()
+2026-04-10 15:45:03,996 | DEBUG |  Exiting history()
+2026-04-10 15:45:03,996 | DEBUG |  Entering history()
+2026-04-10 15:45:03,996 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['RIO.AX', 1, 0])
+2026-04-10 15:45:03,996 | DEBUG |   Entering history()
+2026-04-10 15:45:03,996 | DEBUG | RIO.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:03,996 | DEBUG |    Entering get()
+2026-04-10 15:45:03,997 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:03,997 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/RIO.AX
+2026-04-10 15:45:03,997 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:03,997 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:03,997 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:03,997 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:03,997 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:03,997 | DEBUG | reusing cookie
+2026-04-10 15:45:03,997 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:03,997 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:03,997 | DEBUG | reusing crumb
+2026-04-10 15:45:03,997 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:03,997 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:03,997 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:04,192 | DEBUG | response code=200
+2026-04-10 15:45:04,192 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:04,192 | DEBUG |    Exiting get()
+2026-04-10 15:45:04,193 | DEBUG | RIO.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:04,194 | DEBUG | RIO.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:04,196 | DEBUG | RIO.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:04,201 | DEBUG | RIO.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:04,201 | DEBUG |   Exiting history()
+2026-04-10 15:45:04,201 | DEBUG |  Exiting history()
+2026-04-10 15:45:04,202 | DEBUG |  Entering history()
+2026-04-10 15:45:04,202 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['S32.AX', 1, 0])
+2026-04-10 15:45:04,202 | DEBUG |   Entering history()
+2026-04-10 15:45:04,202 | DEBUG | S32.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:04,202 | DEBUG |    Entering get()
+2026-04-10 15:45:04,202 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:04,202 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/S32.AX
+2026-04-10 15:45:04,202 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:04,202 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:04,203 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:04,203 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:04,203 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:04,203 | DEBUG | reusing cookie
+2026-04-10 15:45:04,203 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:04,203 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:04,203 | DEBUG | reusing crumb
+2026-04-10 15:45:04,203 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:04,203 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:04,203 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:04,380 | DEBUG | response code=200
+2026-04-10 15:45:04,380 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:04,381 | DEBUG |    Exiting get()
+2026-04-10 15:45:04,382 | DEBUG | S32.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:04,383 | DEBUG | S32.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:04,386 | DEBUG | S32.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:04,391 | DEBUG | S32.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:04,391 | DEBUG |   Exiting history()
+2026-04-10 15:45:04,391 | DEBUG |  Exiting history()
+2026-04-10 15:45:04,391 | DEBUG |  Entering history()
+2026-04-10 15:45:04,391 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['QUB.AX', 1, 0])
+2026-04-10 15:45:04,392 | DEBUG |   Entering history()
+2026-04-10 15:45:04,392 | DEBUG | QUB.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:04,392 | DEBUG |    Entering get()
+2026-04-10 15:45:04,392 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:04,392 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/QUB.AX
+2026-04-10 15:45:04,392 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:04,392 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:04,392 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:04,392 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:04,392 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:04,392 | DEBUG | reusing cookie
+2026-04-10 15:45:04,392 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:04,392 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:04,392 | DEBUG | reusing crumb
+2026-04-10 15:45:04,392 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:04,392 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:04,392 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:04,561 | DEBUG | response code=200
+2026-04-10 15:45:04,561 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:04,561 | DEBUG |    Exiting get()
+2026-04-10 15:45:04,562 | DEBUG | QUB.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:04,562 | DEBUG | QUB.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:04,565 | DEBUG | QUB.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:04,569 | DEBUG | QUB.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:04,570 | DEBUG |   Exiting history()
+2026-04-10 15:45:04,570 | DEBUG |  Exiting history()
+2026-04-10 15:45:04,570 | DEBUG |  Entering history()
+2026-04-10 15:45:04,570 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ZIM', 1, 0])
+2026-04-10 15:45:04,570 | DEBUG |   Entering history()
+2026-04-10 15:45:04,571 | DEBUG | ZIM: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:04,571 | DEBUG |    Entering get()
+2026-04-10 15:45:04,571 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:04,571 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/ZIM
+2026-04-10 15:45:04,571 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:04,571 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:04,571 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:04,571 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:04,571 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:04,571 | DEBUG | reusing cookie
+2026-04-10 15:45:04,571 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:04,571 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:04,571 | DEBUG | reusing crumb
+2026-04-10 15:45:04,571 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:04,571 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:04,571 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:04,721 | DEBUG | response code=200
+2026-04-10 15:45:04,721 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:04,721 | DEBUG |    Exiting get()
+2026-04-10 15:45:04,722 | DEBUG | ZIM: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:04,723 | DEBUG | ZIM: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:04,727 | DEBUG | ZIM: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:04,731 | DEBUG | ZIM: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:04,732 | DEBUG |   Exiting history()
+2026-04-10 15:45:04,732 | DEBUG |  Exiting history()
+2026-04-10 15:45:04,732 | DEBUG |  Entering history()
+2026-04-10 15:45:04,733 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['TNE.AX', 1, 0])
+2026-04-10 15:45:04,733 | DEBUG |   Entering history()
+2026-04-10 15:45:04,733 | DEBUG | TNE.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:04,733 | DEBUG |    Entering get()
+2026-04-10 15:45:04,733 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:04,733 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/TNE.AX
+2026-04-10 15:45:04,733 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:04,733 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:04,733 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:04,733 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:04,733 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:04,733 | DEBUG | reusing cookie
+2026-04-10 15:45:04,733 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:04,733 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:04,733 | DEBUG | reusing crumb
+2026-04-10 15:45:04,733 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:04,734 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:04,734 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:04,900 | DEBUG | response code=200
+2026-04-10 15:45:04,900 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:04,900 | DEBUG |    Exiting get()
+2026-04-10 15:45:04,901 | DEBUG | TNE.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:04,902 | DEBUG | TNE.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:04,904 | DEBUG | TNE.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:04,909 | DEBUG | TNE.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:04,909 | DEBUG |   Exiting history()
+2026-04-10 15:45:04,909 | DEBUG |  Exiting history()
+2026-04-10 15:45:04,909 | DEBUG |  Entering history()
+2026-04-10 15:45:04,910 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['BHP.AX', 1, 0])
+2026-04-10 15:45:04,910 | DEBUG |   Entering history()
+2026-04-10 15:45:04,910 | DEBUG | BHP.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:04,910 | DEBUG |    Entering get()
+2026-04-10 15:45:04,910 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:04,910 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/BHP.AX
+2026-04-10 15:45:04,910 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:04,910 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:04,910 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:04,910 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:04,910 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:04,910 | DEBUG | reusing cookie
+2026-04-10 15:45:04,910 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:04,910 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:04,910 | DEBUG | reusing crumb
+2026-04-10 15:45:04,911 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:04,911 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:04,911 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:05,125 | DEBUG | response code=200
+2026-04-10 15:45:05,125 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:05,125 | DEBUG |    Exiting get()
+2026-04-10 15:45:05,126 | DEBUG | BHP.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:05,127 | DEBUG | BHP.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:05,129 | DEBUG | BHP.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:05,134 | DEBUG | BHP.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:05,135 | DEBUG |   Exiting history()
+2026-04-10 15:45:05,135 | DEBUG |  Exiting history()
+2026-04-10 15:45:05,135 | DEBUG |  Entering history()
+2026-04-10 15:45:05,135 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['TCL.AX', 1, 0])
+2026-04-10 15:45:05,135 | DEBUG |   Entering history()
+2026-04-10 15:45:05,135 | DEBUG | TCL.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:05,135 | DEBUG |    Entering get()
+2026-04-10 15:45:05,136 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:05,136 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/TCL.AX
+2026-04-10 15:45:05,136 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:05,136 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:05,136 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:05,136 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:05,136 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:05,136 | DEBUG | reusing cookie
+2026-04-10 15:45:05,136 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:05,136 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:05,136 | DEBUG | reusing crumb
+2026-04-10 15:45:05,136 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:05,136 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:05,136 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:05,324 | DEBUG | response code=200
+2026-04-10 15:45:05,324 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:05,324 | DEBUG |    Exiting get()
+2026-04-10 15:45:05,325 | DEBUG | TCL.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:05,326 | DEBUG | TCL.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:05,328 | DEBUG | TCL.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:05,333 | DEBUG | TCL.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:05,333 | DEBUG |   Exiting history()
+2026-04-10 15:45:05,334 | DEBUG |  Exiting history()
+2026-04-10 15:45:05,334 | DEBUG |  Entering history()
+2026-04-10 15:45:05,334 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NEE', 1, 0])
+2026-04-10 15:45:05,334 | DEBUG |   Entering history()
+2026-04-10 15:45:05,334 | DEBUG | NEE: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:05,334 | DEBUG |    Entering get()
+2026-04-10 15:45:05,334 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:05,334 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/NEE
+2026-04-10 15:45:05,335 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:05,335 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:05,335 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:05,335 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:05,335 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:05,335 | DEBUG | reusing cookie
+2026-04-10 15:45:05,335 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:05,335 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:05,335 | DEBUG | reusing crumb
+2026-04-10 15:45:05,335 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:05,335 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:05,335 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:05,576 | DEBUG | response code=200
+2026-04-10 15:45:05,576 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:05,577 | DEBUG |    Exiting get()
+2026-04-10 15:45:05,578 | DEBUG | NEE: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:05,579 | DEBUG | NEE: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:05,581 | DEBUG | NEE: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:05,586 | DEBUG | NEE: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:05,587 | DEBUG |   Exiting history()
+2026-04-10 15:45:05,587 | DEBUG |  Exiting history()
+2026-04-10 15:45:05,587 | DEBUG |  Entering history()
+2026-04-10 15:45:05,587 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['IGO.AX', 1, 0])
+2026-04-10 15:45:05,587 | DEBUG |   Entering history()
+2026-04-10 15:45:05,587 | DEBUG | IGO.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:05,587 | DEBUG |    Entering get()
+2026-04-10 15:45:05,588 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:05,588 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/IGO.AX
+2026-04-10 15:45:05,588 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:05,588 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:05,588 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:05,588 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:05,588 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:05,588 | DEBUG | reusing cookie
+2026-04-10 15:45:05,588 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:05,588 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:05,588 | DEBUG | reusing crumb
+2026-04-10 15:45:05,588 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:05,588 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:05,588 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:05,753 | DEBUG | response code=200
+2026-04-10 15:45:05,753 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:05,753 | DEBUG |    Exiting get()
+2026-04-10 15:45:05,754 | DEBUG | IGO.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:05,755 | DEBUG | IGO.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:05,758 | DEBUG | IGO.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:05,763 | DEBUG | IGO.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:05,763 | DEBUG |   Exiting history()
+2026-04-10 15:45:05,763 | DEBUG |  Exiting history()
+2026-04-10 15:45:05,763 | DEBUG |  Entering history()
+2026-04-10 15:45:05,763 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MIN.AX', 1, 0])
+2026-04-10 15:45:05,764 | DEBUG |   Entering history()
+2026-04-10 15:45:05,764 | DEBUG | MIN.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:05,764 | DEBUG |    Entering get()
+2026-04-10 15:45:05,764 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:05,764 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/MIN.AX
+2026-04-10 15:45:05,764 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:05,764 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:05,764 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:05,764 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:05,764 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:05,764 | DEBUG | reusing cookie
+2026-04-10 15:45:05,764 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:05,764 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:05,764 | DEBUG | reusing crumb
+2026-04-10 15:45:05,764 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:05,764 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:05,764 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:05,936 | DEBUG | response code=200
+2026-04-10 15:45:05,937 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:05,937 | DEBUG |    Exiting get()
+2026-04-10 15:45:05,938 | DEBUG | MIN.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:05,939 | DEBUG | MIN.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:05,942 | DEBUG | MIN.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:05,947 | DEBUG | MIN.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:05,947 | DEBUG |   Exiting history()
+2026-04-10 15:45:05,947 | DEBUG |  Exiting history()
+2026-04-10 15:45:05,947 | DEBUG |  Entering history()
+2026-04-10 15:45:05,947 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SBLK', 1, 0])
+2026-04-10 15:45:05,948 | DEBUG |   Entering history()
+2026-04-10 15:45:05,948 | DEBUG | SBLK: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:05,948 | DEBUG |    Entering get()
+2026-04-10 15:45:05,948 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:05,948 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/SBLK
+2026-04-10 15:45:05,948 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:05,948 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:05,948 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:05,948 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:05,948 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:05,948 | DEBUG | reusing cookie
+2026-04-10 15:45:05,948 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:05,948 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:05,948 | DEBUG | reusing crumb
+2026-04-10 15:45:05,948 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:05,948 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:05,948 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:06,116 | DEBUG | response code=200
+2026-04-10 15:45:06,116 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:06,116 | DEBUG |    Exiting get()
+2026-04-10 15:45:06,117 | DEBUG | SBLK: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:06,118 | DEBUG | SBLK: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:06,121 | DEBUG | Adding out-of-range Dividends @ 2026-03-09 in new prices row of NaNs
+2026-04-10 15:45:06,124 | DEBUG | SBLK: OHLC after combining events: 2026-03-09 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:06,130 | DEBUG | SBLK: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:06,130 | DEBUG |   Exiting history()
+2026-04-10 15:45:06,130 | DEBUG |  Exiting history()
+2026-04-10 15:45:06,130 | DEBUG |  Entering history()
+2026-04-10 15:45:06,130 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NXT.AX', 1, 0])
+2026-04-10 15:45:06,131 | DEBUG |   Entering history()
+2026-04-10 15:45:06,131 | DEBUG | NXT.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:06,131 | DEBUG |    Entering get()
+2026-04-10 15:45:06,131 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:06,131 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/NXT.AX
+2026-04-10 15:45:06,131 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:06,131 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:06,131 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:06,131 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:06,131 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:06,131 | DEBUG | reusing cookie
+2026-04-10 15:45:06,131 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:06,131 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:06,131 | DEBUG | reusing crumb
+2026-04-10 15:45:06,131 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:06,131 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:06,132 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:06,269 | DEBUG | response code=200
+2026-04-10 15:45:06,269 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:06,269 | DEBUG |    Exiting get()
+2026-04-10 15:45:06,270 | DEBUG | NXT.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:06,271 | DEBUG | NXT.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:06,274 | DEBUG | NXT.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:06,279 | DEBUG | NXT.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:06,279 | DEBUG |   Exiting history()
+2026-04-10 15:45:06,279 | DEBUG |  Exiting history()
+2026-04-10 15:45:06,279 | DEBUG |  Entering history()
+2026-04-10 15:45:06,280 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['FMG.AX', 1, 0])
+2026-04-10 15:45:06,280 | DEBUG |   Entering history()
+2026-04-10 15:45:06,280 | DEBUG | FMG.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:06,280 | DEBUG |    Entering get()
+2026-04-10 15:45:06,280 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:06,280 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/FMG.AX
+2026-04-10 15:45:06,280 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:06,280 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:06,280 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:06,280 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:06,280 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:06,280 | DEBUG | reusing cookie
+2026-04-10 15:45:06,280 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:06,280 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:06,280 | DEBUG | reusing crumb
+2026-04-10 15:45:06,281 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:06,281 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:06,281 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:06,444 | DEBUG | response code=200
+2026-04-10 15:45:06,444 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:06,444 | DEBUG |    Exiting get()
+2026-04-10 15:45:06,445 | DEBUG | FMG.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:06,446 | DEBUG | FMG.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:06,448 | DEBUG | FMG.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:06,453 | DEBUG | FMG.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:06,454 | DEBUG |   Exiting history()
+2026-04-10 15:45:06,454 | DEBUG |  Exiting history()
+2026-04-10 15:45:06,454 | DEBUG |  Entering history()
+2026-04-10 15:45:06,454 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['XOM', 1, 0])
+2026-04-10 15:45:06,454 | DEBUG |   Entering history()
+2026-04-10 15:45:06,454 | DEBUG | XOM: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:06,455 | DEBUG |    Entering get()
+2026-04-10 15:45:06,455 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:06,455 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/XOM
+2026-04-10 15:45:06,455 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:06,455 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:06,455 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:06,455 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:06,455 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:06,455 | DEBUG | reusing cookie
+2026-04-10 15:45:06,455 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:06,455 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:06,455 | DEBUG | reusing crumb
+2026-04-10 15:45:06,455 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:06,455 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:06,455 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:06,697 | DEBUG | response code=200
+2026-04-10 15:45:06,697 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:06,697 | DEBUG |    Exiting get()
+2026-04-10 15:45:06,698 | DEBUG | XOM: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:06,699 | DEBUG | XOM: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:06,701 | DEBUG | XOM: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:06,706 | DEBUG | XOM: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:06,707 | DEBUG |   Exiting history()
+2026-04-10 15:45:06,707 | DEBUG |  Exiting history()
+2026-04-10 15:45:06,707 | DEBUG |  Entering history()
+2026-04-10 15:45:06,707 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NVDA', 1, 0])
+2026-04-10 15:45:06,707 | DEBUG |   Entering history()
+2026-04-10 15:45:06,707 | DEBUG | NVDA: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:06,708 | DEBUG |    Entering get()
+2026-04-10 15:45:06,708 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:06,708 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/NVDA
+2026-04-10 15:45:06,708 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:06,708 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:06,708 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:06,708 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:06,708 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:06,708 | DEBUG | reusing cookie
+2026-04-10 15:45:06,708 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:06,708 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:06,708 | DEBUG | reusing crumb
+2026-04-10 15:45:06,708 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:06,708 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:06,708 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:06,897 | DEBUG | response code=200
+2026-04-10 15:45:06,897 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:06,897 | DEBUG |    Exiting get()
+2026-04-10 15:45:06,898 | DEBUG | NVDA: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:06,899 | DEBUG | NVDA: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:06,904 | DEBUG | NVDA: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:06,909 | DEBUG | NVDA: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:06,909 | DEBUG |   Exiting history()
+2026-04-10 15:45:06,909 | DEBUG |  Exiting history()
+2026-04-10 15:45:06,909 | DEBUG |  Entering history()
+2026-04-10 15:45:06,909 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['VALE', 1, 0])
+2026-04-10 15:45:06,910 | DEBUG |   Entering history()
+2026-04-10 15:45:06,910 | DEBUG | VALE: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:06,910 | DEBUG |    Entering get()
+2026-04-10 15:45:06,910 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:06,910 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/VALE
+2026-04-10 15:45:06,910 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:06,910 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:06,910 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:06,910 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:06,910 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:06,910 | DEBUG | reusing cookie
+2026-04-10 15:45:06,910 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:06,910 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:06,910 | DEBUG | reusing crumb
+2026-04-10 15:45:06,910 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:06,910 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:06,910 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:07,096 | DEBUG | response code=200
+2026-04-10 15:45:07,096 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:07,096 | DEBUG |    Exiting get()
+2026-04-10 15:45:07,097 | DEBUG | VALE: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:07,098 | DEBUG | VALE: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:07,101 | DEBUG | VALE: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:07,106 | DEBUG | VALE: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:07,106 | DEBUG |   Exiting history()
+2026-04-10 15:45:07,106 | DEBUG |  Exiting history()
+2026-04-10 15:45:07,106 | DEBUG |  Entering history()
+2026-04-10 15:45:07,107 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['CVX', 1, 0])
+2026-04-10 15:45:07,107 | DEBUG |   Entering history()
+2026-04-10 15:45:07,107 | DEBUG | CVX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:07,107 | DEBUG |    Entering get()
+2026-04-10 15:45:07,107 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:07,107 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/CVX
+2026-04-10 15:45:07,107 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:07,107 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:07,107 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:07,107 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:07,107 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:07,107 | DEBUG | reusing cookie
+2026-04-10 15:45:07,107 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:07,108 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:07,108 | DEBUG | reusing crumb
+2026-04-10 15:45:07,108 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:07,108 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:07,108 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:07,328 | DEBUG | response code=200
+2026-04-10 15:45:07,328 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:07,328 | DEBUG |    Exiting get()
+2026-04-10 15:45:07,329 | DEBUG | CVX: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:07,330 | DEBUG | CVX: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:07,332 | DEBUG | CVX: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:07,337 | DEBUG | CVX: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:07,338 | DEBUG |   Exiting history()
+2026-04-10 15:45:07,338 | DEBUG |  Exiting history()
+2026-04-10 15:45:07,338 | DEBUG |  Entering history()
+2026-04-10 15:45:07,338 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ASX.AX', 1, 0])
+2026-04-10 15:45:07,338 | DEBUG |   Entering history()
+2026-04-10 15:45:07,339 | DEBUG | ASX.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:07,339 | DEBUG |    Entering get()
+2026-04-10 15:45:07,339 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:07,339 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/ASX.AX
+2026-04-10 15:45:07,339 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:07,339 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:07,339 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:07,339 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:07,339 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:07,339 | DEBUG | reusing cookie
+2026-04-10 15:45:07,339 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:07,339 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:07,339 | DEBUG | reusing crumb
+2026-04-10 15:45:07,339 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:07,339 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:07,339 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:07,509 | DEBUG | response code=200
+2026-04-10 15:45:07,509 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:07,509 | DEBUG |    Exiting get()
+2026-04-10 15:45:07,510 | DEBUG | ASX.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:07,511 | DEBUG | ASX.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:07,513 | DEBUG | ASX.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:07,519 | DEBUG | ASX.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:07,519 | DEBUG |   Exiting history()
+2026-04-10 15:45:07,520 | DEBUG |  Exiting history()
+2026-04-10 15:45:07,520 | DEBUG |  Entering history()
+2026-04-10 15:45:07,520 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['TSLA', 1, 0])
+2026-04-10 15:45:07,520 | DEBUG |   Entering history()
+2026-04-10 15:45:07,520 | DEBUG | TSLA: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:07,521 | DEBUG |    Entering get()
+2026-04-10 15:45:07,521 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:07,521 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/TSLA
+2026-04-10 15:45:07,521 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:07,521 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:07,521 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:07,521 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:07,521 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:07,521 | DEBUG | reusing cookie
+2026-04-10 15:45:07,521 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:07,521 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:07,521 | DEBUG | reusing crumb
+2026-04-10 15:45:07,521 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:07,521 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:07,521 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:07,662 | DEBUG | response code=200
+2026-04-10 15:45:07,662 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:07,662 | DEBUG |    Exiting get()
+2026-04-10 15:45:07,663 | DEBUG | TSLA: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:07,666 | DEBUG | TSLA: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:07,669 | DEBUG | TSLA: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:07,680 | DEBUG | TSLA: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:07,680 | DEBUG |   Exiting history()
+2026-04-10 15:45:07,680 | DEBUG |  Exiting history()
+2026-04-10 15:45:07,680 | DEBUG |  Entering history()
+2026-04-10 15:45:07,681 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MATX', 1, 0])
+2026-04-10 15:45:07,682 | DEBUG |   Entering history()
+2026-04-10 15:45:07,682 | DEBUG | MATX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:07,682 | DEBUG |    Entering get()
+2026-04-10 15:45:07,682 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:07,682 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/MATX
+2026-04-10 15:45:07,682 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:07,682 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:07,682 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:07,682 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:07,682 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:07,682 | DEBUG | reusing cookie
+2026-04-10 15:45:07,682 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:07,682 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:07,682 | DEBUG | reusing crumb
+2026-04-10 15:45:07,682 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:07,682 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:07,682 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:07,880 | DEBUG | response code=200
+2026-04-10 15:45:07,880 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:07,880 | DEBUG |    Exiting get()
+2026-04-10 15:45:07,881 | DEBUG | MATX: yfinance received OHLC data: 2026-03-10 13:30:00 -> 2026-04-09 13:30:00
+2026-04-10 15:45:07,882 | DEBUG | MATX: OHLC after cleaning: 2026-03-10 09:30:00-04:00 -> 2026-04-09 09:30:00-04:00
+2026-04-10 15:45:07,885 | DEBUG | MATX: OHLC after combining events: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:07,890 | DEBUG | MATX: yfinance returning OHLC: 2026-03-10 00:00:00-04:00 -> 2026-04-09 00:00:00-04:00
+2026-04-10 15:45:07,890 | DEBUG |   Exiting history()
+2026-04-10 15:45:07,890 | DEBUG |  Exiting history()
+2026-04-10 15:45:07,891 | DEBUG |  Entering history()
+2026-04-10 15:45:07,891 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AGL.AX', 1, 0])
+2026-04-10 15:45:07,891 | DEBUG |   Entering history()
+2026-04-10 15:45:07,891 | DEBUG | AGL.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:07,891 | DEBUG |    Entering get()
+2026-04-10 15:45:07,891 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:07,891 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/AGL.AX
+2026-04-10 15:45:07,891 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:07,891 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:07,891 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:07,891 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:07,892 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:07,892 | DEBUG | reusing cookie
+2026-04-10 15:45:07,892 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:07,892 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:07,892 | DEBUG | reusing crumb
+2026-04-10 15:45:07,892 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:07,892 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:07,892 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:08,105 | DEBUG | response code=200
+2026-04-10 15:45:08,105 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:08,105 | DEBUG |    Exiting get()
+2026-04-10 15:45:08,107 | DEBUG | AGL.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:08,108 | DEBUG | AGL.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:08,110 | DEBUG | AGL.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:08,114 | DEBUG | AGL.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:08,115 | DEBUG |   Exiting history()
+2026-04-10 15:45:08,115 | DEBUG |  Exiting history()
+2026-04-10 15:45:08,115 | DEBUG |  Entering history()
+2026-04-10 15:45:08,115 | DEBUG | ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['REA.AX', 1, 0])
+2026-04-10 15:45:08,116 | DEBUG |   Entering history()
+2026-04-10 15:45:08,116 | DEBUG | REA.AX: Yahoo GET parameters: {'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:08,116 | DEBUG |    Entering get()
+2026-04-10 15:45:08,116 | DEBUG |     Entering _make_request()
+2026-04-10 15:45:08,116 | DEBUG | url=https://query2.finance.yahoo.com/v8/finance/chart/REA.AX
+2026-04-10 15:45:08,116 | DEBUG | params={'range': '1mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-04-10 15:45:08,116 | DEBUG |      Entering _get_cookie_and_crumb()
+2026-04-10 15:45:08,116 | DEBUG | cookie_mode = 'basic'
+2026-04-10 15:45:08,116 | DEBUG |       Entering _get_cookie_and_crumb_basic()
+2026-04-10 15:45:08,116 | DEBUG |        Entering _get_cookie_basic()
+2026-04-10 15:45:08,116 | DEBUG | reusing cookie
+2026-04-10 15:45:08,116 | DEBUG |        Exiting _get_cookie_basic()
+2026-04-10 15:45:08,116 | DEBUG |        Entering _get_crumb_basic()
+2026-04-10 15:45:08,116 | DEBUG | reusing crumb
+2026-04-10 15:45:08,116 | DEBUG |        Exiting _get_crumb_basic()
+2026-04-10 15:45:08,116 | DEBUG |       Exiting _get_cookie_and_crumb_basic()
+2026-04-10 15:45:08,116 | DEBUG |      Exiting _get_cookie_and_crumb()
+2026-04-10 15:45:08,400 | DEBUG | response code=200
+2026-04-10 15:45:08,400 | DEBUG |     Exiting _make_request()
+2026-04-10 15:45:08,400 | DEBUG |    Exiting get()
+2026-04-10 15:45:08,401 | DEBUG | REA.AX: yfinance received OHLC data: 2026-03-09 23:00:00 -> 2026-04-10 00:00:00
+2026-04-10 15:45:08,402 | DEBUG | REA.AX: OHLC after cleaning: 2026-03-10 10:00:00+11:00 -> 2026-04-10 10:00:00+10:00
+2026-04-10 15:45:08,405 | DEBUG | REA.AX: OHLC after combining events: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:08,409 | DEBUG | REA.AX: yfinance returning OHLC: 2026-03-10 00:00:00+11:00 -> 2026-04-10 00:00:00+10:00
+2026-04-10 15:45:08,410 | DEBUG |   Exiting history()
+2026-04-10 15:45:08,410 | DEBUG |  Exiting history()
+2026-04-10 15:45:08,425 | DEBUG | Exiting download()
+2026-04-10 15:45:13,500 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:45:13,632 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154320958): is_file, is_modified
+2026-04-10 15:45:13,632 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:17,111 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:45:17,123 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154321333): is_file, is_modified
+2026-04-10 15:45:17,124 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:23,119 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:45:23,136 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154322306): is_file, is_modified
+2026-04-10 15:45:23,136 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,235 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 777249.crdownload", inode=38330108, flags=18900, id=154323505): is_coalesced, is_created, is_file, is_renamed, is_xattr_mod
+2026-04-10 15:45:42,235 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 777249.crdownload", inode=38330029, flags=14800, id=154323517): is_file, is_owner_change, is_renamed
+2026-04-10 15:45:42,235 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv", inode=38330109, flags=18900, id=154323519): is_coalesced, is_created, is_file, is_renamed, is_xattr_mod
+2026-04-10 15:45:42,235 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv", inode=38330029, flags=1c800, id=154323525): is_file, is_owner_change, is_renamed, is_xattr_mod
+2026-04-10 15:45:42,235 | DEBUG | queue_event FileCreatedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 777249.crdownload', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,236 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:42,236 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 777249.crdownload', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,236 | DEBUG | queue_event FileDeletedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 777249.crdownload', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,236 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:42,237 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 777249.crdownload', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,237 | DEBUG | Destination event for rename is NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv", inode=38330029, flags=1c800, id=154323525)
+2026-04-10 15:45:42,237 | DEBUG | queue_event FileMovedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 777249.crdownload', dest_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv', event_type='moved', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,237 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:42,237 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:42,237 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,238 | DEBUG | queue_event FileCreatedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,238 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:42,238 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,238 | DEBUG | queue_event FileDeletedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,238 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:42,251 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv", inode=38330029, flags=1c800, id=154323557): is_file, is_owner_change, is_renamed, is_xattr_mod
+2026-04-10 15:45:42,253 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,253 | DEBUG | queue_event FileCreatedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/geosupply_5d (1).csv', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:42,253 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:49,171 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:45:49,182 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154323598): is_file, is_modified
+2026-04-10 15:45:49,183 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,421 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 22707.crdownload", inode=38330118, flags=18900, id=154323709): is_coalesced, is_created, is_file, is_renamed, is_xattr_mod
+2026-04-10 15:45:54,423 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 22707.crdownload", inode=38330113, flags=14800, id=154323712): is_file, is_owner_change, is_renamed
+2026-04-10 15:45:54,423 | DEBUG | queue_event FileCreatedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 22707.crdownload', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,424 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:54,424 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 22707.crdownload', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,425 | DEBUG | queue_event FileDeletedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 22707.crdownload', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,425 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:54,425 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 22707.crdownload', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,425 | DEBUG | queue_event FileDeletedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 22707.crdownload', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,425 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:54,426 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 22707.crdownload", inode=38330113, flags=14800, id=154323721): is_file, is_owner_change, is_renamed
+2026-04-10 15:45:54,426 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv", inode=38330119, flags=18900, id=154323723): is_coalesced, is_created, is_file, is_renamed, is_xattr_mod
+2026-04-10 15:45:54,426 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv", inode=38330113, flags=1c800, id=154323729): is_file, is_owner_change, is_renamed, is_xattr_mod
+2026-04-10 15:45:54,426 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 22707.crdownload', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,426 | DEBUG | Destination event for rename is NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv", inode=38330113, flags=1c800, id=154323729)
+2026-04-10 15:45:54,426 | DEBUG | queue_event FileMovedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/Unconfirmed 22707.crdownload', dest_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv', event_type='moved', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,426 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:54,426 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:54,426 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,426 | DEBUG | queue_event FileCreatedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,427 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:54,427 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,427 | DEBUG | queue_event FileDeletedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,427 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:45:54,439 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv", inode=38330113, flags=18000, id=154323735): is_file, is_xattr_mod
+2026-04-10 15:45:54,439 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv", inode=38330113, flags=1c800, id=154323756): is_file, is_owner_change, is_renamed, is_xattr_mod
+2026-04-10 15:45:54,439 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,440 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,440 | DEBUG | queue_event FileCreatedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export/IBKR_top10.csv', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2026-04-10 15:45:54,440 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/Export', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:46:03,039 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:46:03,104 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154323911): is_file, is_modified
+2026-04-10 15:46:03,154 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:46:03,538 | DEBUG | Using selector: KqueueSelector
+2026-04-10 15:46:14,451 | INFO | Logged interaction: self_improvement | Horizon: 5d
+2026-04-10 15:46:14,465 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply.db-journal", inode=38330152, flags=11300, id=154324131): is_coalesced, is_created, is_file, is_modified, is_removed
+2026-04-10 15:46:14,467 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply.db", inode=38295271, flags=11000, id=154324134): is_file, is_modified
+2026-04-10 15:46:14,468 | DEBUG | queue_event FileCreatedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply.db-journal', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2026-04-10 15:46:14,468 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:46:14,470 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply.db-journal', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:46:14,473 | DEBUG | queue_event FileDeletedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply.db-journal', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2026-04-10 15:46:14,474 | DEBUG | queue_event DirModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2026-04-10 15:46:14,478 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply.db', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 15:46:17,959 | INFO | === GeoSupply v7.1 started - Consolidated Self-Improvement ===
+2026-04-10 15:46:18,031 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154324151): is_file, is_modified
+2026-04-10 15:46:18,031 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
