@@ -10,3 +10,10 @@
 2026-04-10 09:44:12 | INFO | DB_INIT: SQLite database ready
 2026-04-10 09:44:19 | INFO | 🚀 GeoSupply v4.0 initialized - DB persistence active
 2026-04-10 09:44:19 | INFO | DB_INIT: SQLite database ready
+2026-04-10 10:10:28,916 | INFO | Grok memory DB initialized/migrated
+2026-04-10 10:10:35,866 | INFO | Grok memory DB initialized/migrated
+2026-04-10 10:10:40,108 | INFO | Grok memory DB initialized/migrated
+2026-04-10 10:10:40,184 | INFO | Grok memory DB initialized/migrated
+2026-04-10 10:10:52,275 | INFO | Grok memory DB initialized/migrated
+2026-04-10 10:10:53,068 | INFO | Grok memory DB initialized/migrated
+2026-04-10 10:10:53,162 | INFO | Grok memory DB initialized/migrated
