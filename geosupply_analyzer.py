@@ -1,10 +1,25 @@
 #!/usr/bin/env python3
 """
-🌍 GeoSupply Short-Term Profit Predictor v6.2
-Grok Memory Analytics Edition • Async Generation + History Save • Fixed Colormap + Key Collisions + SSL Robustness
+🌍 GeoSupply Short-Term Profit Predictor v6.3
+Grok Memory Analytics Edition • Strong SSL Fix + Enhanced Logging
 Production-Ready with Non-Blocking Grok Calls and Better Error Handling
 """
 
+# ====================== STRONG SSL FIX (macOS Python Common Issue) ======================
+import ssl
+import certifi
+import aiohttp
+import asyncio
+
+# Force use of certifi's certificate bundle + unverified context fallback
+ssl_context = ssl.create_default_context(cafile=certifi.where())
+ssl_context.check_hostname = False
+ssl_context.verify_mode = ssl.CERT_NONE  # Temporary fallback - remove after Install Certificates.command
+
+# Apply globally
+ssl._create_default_https_context = lambda: ssl_context
+
+# ====================== IMPORTS ======================
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -18,31 +33,22 @@ from typing import List, Dict, Optional
 import sqlite3
 import logging
 from pathlib import Path
-import asyncio
-import aiohttp
 
-# ====================== SSL FIX (macOS Common Issue) ======================
-import ssl
-try:
-    _create_unverified_https_context = ssl._create_unverified_context
-except AttributeError:
-    pass
-else:
-    ssl._create_default_https_context = _create_unverified_https_context
-
-# ====================== CONFIG ======================
+# ====================== CONFIG & LOGGING ======================
 BASE_DIR = Path(__file__).parent
 DB_PATH = BASE_DIR / "geosupply.db"
 
 def setup_logging():
     logging.basicConfig(
         filename="geosupply_analyzer.log",
-        level=logging.INFO,
+        level=logging.DEBUG,          # Changed to DEBUG for more visibility
         format="%(asctime)s | %(levelname)s | %(message)s",
         force=True
     )
 
 setup_logging()
+
+logging.info("=== GeoSupply v6.3 started ===")
 
 # ====================== DATABASE ======================
 def init_db():
@@ -79,8 +85,9 @@ def log_grok_interaction(interaction_type: str, model: str, prompt: str, respons
         """, (interaction_type, model, prompt_hash, response, horizon, prompt))
         conn.commit()
         conn.close()
+        logging.info(f"Successfully logged Grok interaction: {interaction_type} | Model: {model} | Horizon: {horizon}")
     except Exception as e:
-        logging.warning(f"DB log failed: {e}")
+        logging.error(f"DB log failed: {e}")
 
 def get_grok_history(limit: int = 100) -> pd.DataFrame:
     try:
@@ -126,11 +133,14 @@ SECTORS: Dict[str, List[str]] = {
 ALL_TICKERS = sorted({t for sector_list in SECTORS.values() for t in sector_list})
 AVAILABLE_MODELS = ["grok-4.20-reasoning", "grok-4.20-non-reasoning", "grok-4-1-fast-reasoning"]
 
-# ====================== ASYNC GROK API ======================
+# ====================== ASYNC GROK API (with extra logging) ======================
 async def async_call_grok_api(prompt: str, model: str, temperature: float = 0.7, 
                              interaction_type: Optional[str] = None, horizon: str = "") -> str:
     if not st.session_state.get("grok_api_key"):
+        logging.warning("Grok API called without API key")
         return "⚠️ Please enter your Grok API key in the sidebar."
+
+    logging.info(f"Starting Grok API call - Model: {model} | Horizon: {horizon} | Prompt length: {len(prompt)}")
 
     headers = {
         "Authorization": f"Bearer {st.session_state.grok_api_key}",
@@ -144,13 +154,18 @@ async def async_call_grok_api(prompt: str, model: str, temperature: float = 0.7,
     }
 
     try:
-        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=90)) as session:
+        connector = aiohttp.TCPConnector(ssl=ssl_context)
+        async with aiohttp.ClientSession(connector=connector, timeout=aiohttp.ClientTimeout(total=90)) as session:
+            logging.debug("Sending POST request to https://api.x.ai/v1/chat/completions")
             async with session.post("https://api.x.ai/v1/chat/completions", 
                                   headers=headers, json=payload) as resp:
+                
+                logging.info(f"Received response with status: {resp.status}")
+                
                 if resp.status != 200:
                     error_text = await resp.text()
-                    logging.error(f"Grok API error {resp.status}: {error_text[:300]}")
-                    return f"❌ Grok API error ({resp.status}): {error_text[:200]}"
+                    logging.error(f"Grok API error {resp.status}: {error_text[:400]}")
+                    return f"❌ Grok API error ({resp.status}): {error_text[:300]}"
                 
                 data = await resp.json()
                 content = data["choices"][0]["message"]["content"]
@@ -158,15 +173,18 @@ async def async_call_grok_api(prompt: str, model: str, temperature: float = 0.7,
                 if interaction_type:
                     log_grok_interaction(interaction_type, model, prompt, content, horizon)
                 
+                logging.info(f"Grok API call successful - Response length: {len(content)}")
                 return content
+                
     except asyncio.TimeoutError:
+        logging.error("Grok API request timed out")
         return "❌ Grok API request timed out. Please try again."
-    except aiohttp.ClientError as e:
-        logging.error(f"Grok API connection error: {e}")
-        return f"❌ Network error calling Grok: {str(e)[:150]}"
+    except aiohttp.ClientConnectorError as e:
+        logging.error(f"Connection error: {e}")
+        return f"❌ Connection error: {str(e)}"
     except Exception as e:
-        logging.error(f"Grok API unexpected error: {e}")
-        return f"❌ Unexpected error: {str(e)[:200]}"
+        logging.error(f"Unexpected error in Grok API call: {type(e).__name__}: {e}", exc_info=True)
+        return f"❌ Unexpected error calling Grok: {str(e)[:200]}"
 
 # ====================== MARKET DATA & SIGNALS ======================
 @st.cache_data(ttl=300)
@@ -267,14 +285,14 @@ if "last_thesis" not in st.session_state:
     st.session_state.last_thesis = None
 
 st.set_page_config(
-    page_title="GeoSupply v6.2", 
+    page_title="GeoSupply v6.3", 
     page_icon="🌍", 
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-st.title("🌍 GeoSupply Short-Term Profit Predictor **v6.2**")
-st.caption("**Async Grok Generation** • **Fixed Key Collisions & SSL** • **Persistent History**")
+st.title("🌍 GeoSupply Short-Term Profit Predictor **v6.3**")
+st.caption("**Strong SSL Fix + Enhanced Logging** • Async Grok • Persistent History")
 
 with st.sidebar:
     st.header("🔑 Grok API")
@@ -368,7 +386,7 @@ with tab3:
 
 with tab4:
     st.subheader("🤖 Grok 2-5 Day Trading Thesis")
-    st.caption("Non-blocking async generation • Auto-saves to history")
+    st.caption("Non-blocking async generation with detailed logging")
     
     if st.button("🚀 Generate Thesis + Self-Improvement Suggestions", 
                 type="primary", use_container_width=True):
@@ -387,7 +405,7 @@ Provide:
 
 Be concise, actionable, and data-driven."""
 
-            with st.spinner("Calling xAI Grok asynchronously..."):
+            with st.spinner("Calling xAI Grok asynchronously... (check logs for details)"):
                 try:
                     thesis = asyncio.run(
                         async_call_grok_api(prompt, model, temperature, 
@@ -395,14 +413,17 @@ Be concise, actionable, and data-driven."""
                     )
                     
                     st.session_state.last_thesis = thesis
-                    st.success("✅ Thesis generated successfully!")
+                    if "❌" not in thesis:
+                        st.success("✅ Thesis generated successfully!")
+                    else:
+                        st.error(thesis)
                     display_thesis(thesis, unique_key_suffix="new")
                     
                 except Exception as e:
-                    st.error(f"Generation failed: {str(e)}")
-                    logging.error(f"Thesis generation error: {e}")
+                    error_msg = f"Generation failed: {str(e)}"
+                    st.error(error_msg)
+                    logging.error(error_msg, exc_info=True)
 
-    # Show last generated thesis with unique key suffix to prevent duplicate key errors
     if st.session_state.get("last_thesis"):
         st.markdown("---")
         display_thesis(st.session_state.last_thesis, unique_key_suffix="last")
@@ -458,4 +479,4 @@ with tab6:
         st.dataframe(df[["timestamp", "interaction_type", "model", "horizon", "response_length"]].head(100),
                      use_container_width=True)
 
-st.caption("**v6.2** • Fixed Duplicate Keys + SSL Certificate Issue • Async Grok + Persistent History • https://github.com/JeffStone69/XAi")
+st.caption("**v6.3** • Strong SSL Fix + Extra Logging • Async Grok + Persistent History • https://github.com/JeffStone69/XAi")
