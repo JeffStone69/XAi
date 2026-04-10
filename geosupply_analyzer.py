@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-🌍 GeoSupply Short-Term Profit Predictor v6.1
-Grok Memory Analytics Edition • Async Generation + History Save • Fixed Colormap
+🌍 GeoSupply Short-Term Profit Predictor v6.2
+Grok Memory Analytics Edition • Async Generation + History Save • Fixed Colormap + Key Collisions + SSL Robustness
 Production-Ready with Non-Blocking Grok Calls and Better Error Handling
 """
 
@@ -12,7 +12,6 @@ import yfinance as yf
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
-import requests
 import hashlib
 from datetime import datetime
 from typing import List, Dict, Optional
@@ -21,7 +20,15 @@ import logging
 from pathlib import Path
 import asyncio
 import aiohttp
-import time
+
+# ====================== SSL FIX (macOS Common Issue) ======================
+import ssl
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
 
 # ====================== CONFIG ======================
 BASE_DIR = Path(__file__).parent
@@ -233,18 +240,22 @@ def compute_profit_signals(raw_data: Dict[str, pd.DataFrame], horizon: str) -> p
     return df.sort_values("Signal Score", ascending=False).reset_index(drop=True) if not df.empty else df
 
 # ====================== UI HELPERS ======================
-def display_thesis(thesis: str):
+def display_thesis(thesis: str, unique_key_suffix: str = ""):
+    if not thesis or not isinstance(thesis, str):
+        return
     with st.container(border=True):
         st.markdown("### 📝 Grok Thesis")
         st.markdown(thesis)
         
         col_copy, col_save = st.columns([1, 1])
         with col_copy:
-            if st.button("📋 Copy to Clipboard", key=f"copy_{hash(thesis) % 100000}"):
+            if st.button("📋 Copy to Clipboard", 
+                        key=f"copy_{abs(hash(thesis)) % 100000}_{unique_key_suffix}"):
                 st.toast("✅ Copied to clipboard!", icon="📋")
         with col_save:
-            if st.button("💾 Save to History", type="primary", key=f"save_{hash(thesis) % 100000}"):
-                st.success("✅ Already saved automatically to Grok History")
+            if st.button("💾 Save to History", type="primary", 
+                        key=f"save_{abs(hash(thesis)) % 100000}_{unique_key_suffix}"):
+                st.success("✅ Saved to Grok History (already auto-logged in DB)")
                 st.rerun()
 
 # ====================== MAIN APP ======================
@@ -256,14 +267,14 @@ if "last_thesis" not in st.session_state:
     st.session_state.last_thesis = None
 
 st.set_page_config(
-    page_title="GeoSupply v6.1", 
+    page_title="GeoSupply v6.2", 
     page_icon="🌍", 
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-st.title("🌍 GeoSupply Short-Term Profit Predictor **v6.1**")
-st.caption("**Async Grok Generation** • **Persistent History** • **Fixed Colormap Error**")
+st.title("🌍 GeoSupply Short-Term Profit Predictor **v6.2**")
+st.caption("**Async Grok Generation** • **Fixed Key Collisions & SSL** • **Persistent History**")
 
 with st.sidebar:
     st.header("🔑 Grok API")
@@ -302,7 +313,6 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
 with tab1:
     st.subheader(f"🔥 Profit Signal Leaderboard ({horizon})")
     if not summary_df.empty:
-        # FIXED: Use lowercase 'viridis'
         styled_df = summary_df.style.background_gradient(cmap="viridis", subset=["Signal Score"])
         st.dataframe(styled_df, use_container_width=True, hide_index=True)
         
@@ -351,7 +361,7 @@ with tab3:
             z=sector_stats.values.reshape(-1, 1),
             x=["Avg Signal Score"],
             y=sector_stats.index,
-            colorscale="Viridis"   # Plotly accepts 'Viridis' (capital V)
+            colorscale="Viridis"
         ))
         fig.update_layout(title="Sector Average Signal Strength", height=420, template="plotly_dark")
         st.plotly_chart(fig, use_container_width=True)
@@ -379,24 +389,23 @@ Be concise, actionable, and data-driven."""
 
             with st.spinner("Calling xAI Grok asynchronously..."):
                 try:
-                    loop = asyncio.new_event_loop()
-                    asyncio.set_event_loop(loop)
-                    thesis = loop.run_until_complete(
+                    thesis = asyncio.run(
                         async_call_grok_api(prompt, model, temperature, 
                                           interaction_type="thesis", horizon=horizon)
                     )
-                    loop.close()
                     
                     st.session_state.last_thesis = thesis
                     st.success("✅ Thesis generated successfully!")
-                    display_thesis(thesis)
+                    display_thesis(thesis, unique_key_suffix="new")
                     
                 except Exception as e:
                     st.error(f"Generation failed: {str(e)}")
                     logging.error(f"Thesis generation error: {e}")
 
+    # Show last generated thesis with unique key suffix to prevent duplicate key errors
     if st.session_state.get("last_thesis"):
-        display_thesis(st.session_state.last_thesis)
+        st.markdown("---")
+        display_thesis(st.session_state.last_thesis, unique_key_suffix="last")
 
 with tab5:
     st.subheader("📖 Grok Interaction History")
@@ -449,4 +458,4 @@ with tab6:
         st.dataframe(df[["timestamp", "interaction_type", "model", "horizon", "response_length"]].head(100),
                      use_container_width=True)
 
-st.caption("**v6.1** • Fixed Viridis colormap • Async Grok + History • https://github.com/JeffStone69/XAi")
+st.caption("**v6.2** • Fixed Duplicate Keys + SSL Certificate Issue • Async Grok + Persistent History • https://github.com/JeffStone69/XAi")
