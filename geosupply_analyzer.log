@@ -1,0 +1,31 @@
+ValueError: Invalid value of type 'builtins.float' received for the 'y' property of scatter Received value: 34.947462048178494 The 'y' property is an array that may be specified as a tuple, list, numpy array, or pandas Series
+Traceback:
+File "/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply.py", line 448, in <module>
+    main()
+    ~~~~^^
+File "/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply.py", line 371, in main
+    fig.add_trace(go.Scatter(x=hist.index, y=SignalEngine.calculate_rsi(hist["Close"]), name="RSI"), row=3, col=1)
+                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/plotly/graph_objs/_scatter.py", line 2832, in __init__
+    self._set_property("y", arg, y)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/plotly/basedatatypes.py", line 4403, in _set_property
+    _set_property_provided_value(self, name, arg, provided)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/plotly/basedatatypes.py", line 398, in _set_property_provided_value
+    obj[name] = val
+    ~~~^^^^^^
+File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/plotly/basedatatypes.py", line 4932, in __setitem__
+    self._set_prop(prop, value)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/plotly/basedatatypes.py", line 5276, in _set_prop
+    raise err
+File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/plotly/basedatatypes.py", line 5271, in _set_prop
+    val = validator.validate_coerce(val)
+File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_plotly_utils/basevalidators.py", line 424, in validate_coerce
+    self.raise_invalid_val(v)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^
+File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/_plotly_utils/basevalidators.py", line 312, in raise_invalid_val
+            raise ValueError(
+    ...<11 lines>...
+            )
