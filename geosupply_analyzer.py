@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-🌍 GeoSupply Short-Term Profit Predictor v9.3
-Rebound Profit Edition + Full Grok Self-Improvement & History
+🌍 GeoSupply Short-Term Profit Predictor v0.94
+Rebound Profit Edition • Improved Market Selection + Granular Timeframes
 """
 
 import streamlit as st
@@ -35,25 +35,20 @@ SECTORS = {
     "Renewable": ["NEE", "FSLR", "ENPH"],
 }
 
-ALL_TICKERS = sorted({t for lst in SECTORS.values() for t in lst})
+ALL_ASX_TICKERS = [t for lst in SECTORS.values() for t in lst if t.endswith(".AX")]
+ALL_US_TICKERS = [t for lst in SECTORS.values() for t in lst if not t.endswith(".AX")]
 
 # ====================== LOGGING & DB ======================
 logging.basicConfig(filename="geosupply_analyzer.log", level=logging.INFO,
                     format="%(asctime)s | %(levelname)s | %(message)s", force=True)
-logger = logging.getLogger("GeoSupply")
 
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     conn.execute("""CREATE TABLE IF NOT EXISTS grok_interactions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
-        interaction_type TEXT,
-        model TEXT,
-        prompt_hash TEXT,
-        response TEXT,
-        horizon TEXT,
-        prompt TEXT,
-        market_session TEXT,
+        interaction_type TEXT, model TEXT, prompt_hash TEXT,
+        response TEXT, horizon TEXT, prompt TEXT, market_session TEXT,
         signal_score_avg REAL)""")
     conn.commit()
     conn.close()
@@ -69,9 +64,8 @@ def log_grok_interaction(interaction_type: str, model: str, prompt: str, respons
             (interaction_type, model, prompt_hash, response, horizon, prompt, market_session, avg_score))
         conn.commit()
         conn.close()
-        logger.info(f"Logged {interaction_type} interaction")
     except Exception as e:
-        logger.error(f"DB log failed: {e}")
+        logging.error(f"DB log failed: {e}")
 
 def get_grok_history(limit: int = 100) -> pd.DataFrame:
     try:
@@ -104,20 +98,19 @@ class SignalEngine:
         return float(macd.iloc[-1] - signal.iloc[-1])
 
     @staticmethod
-    def compute_signals(raw_data: Dict[str, pd.DataFrame], horizon: str) -> pd.DataFrame:
+    def compute_signals(raw_data: Dict[str, pd.DataFrame], horizon_days: int) -> pd.DataFrame:
         if not raw_data:
             return pd.DataFrame()
         
-        lookback = {"5d": 5, "10d": 10, "1mo": 20}.get(horizon, 5)
         records = []
-        
         for ticker, hist in raw_data.items():
-            if len(hist) < lookback + 10: continue
+            if len(hist) < horizon_days + 10: 
+                continue
             try:
                 close = hist["Close"]
                 volume = hist["Volume"]
                 
-                price_change = ((close.iloc[-1] - close.iloc[-(lookback + 1)]) / close.iloc[-(lookback + 1)]) * 100
+                price_change = ((close.iloc[-1] - close.iloc[-(horizon_days + 1)]) / close.iloc[-(horizon_days + 1)]) * 100
                 vol_avg = volume.mean()
                 vol_spike = volume.iloc[-1] / vol_avg if vol_avg > 0 else 1.0
                 rsi = SignalEngine.calculate_rsi(close)
@@ -127,7 +120,7 @@ class SignalEngine:
                     max(0, 40 - rsi) * 0.45 +
                     vol_spike * 0.30 +
                     max(0, -price_change) * 0.15 +
-                    (15 if -10 < price_change < 3 else 0), 1
+                    (15 if -10 < price_change < 4 else 0), 1
                 )
 
                 signal_score = round(rebound_score * 0.85 + (12 if macd_hist > 0 else 0), 1)
@@ -138,7 +131,7 @@ class SignalEngine:
                     "Ticker": ticker,
                     "Sector": sector,
                     "Current Price": round(close.iloc[-1], 2),
-                    f"{horizon} Change %": round(price_change, 1),
+                    f"{horizon_days}d Change %": round(price_change, 1),
                     "Vol Spike": round(vol_spike, 2),
                     "RSI": round(rsi, 1),
                     "MACD Hist": round(macd_hist, 2),
@@ -156,15 +149,10 @@ class SignalEngine:
 def call_grok_api(prompt: str, model: str, temperature: float = 0.7,
                   interaction_type: Optional[str] = None, horizon: str = "", market_session: str = "") -> str:
     if not st.session_state.get("grok_api_key"):
-        return "⚠️ Please enter your Grok API key in the sidebar to enable AI features."
+        return "⚠️ Enter Grok API key in sidebar for AI features."
     
     headers = {"Authorization": f"Bearer {st.session_state.grok_api_key}", "Content-Type": "application/json"}
-    payload = {
-        "model": model,
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": temperature,
-        "max_tokens": 2000
-    }
+    payload = {"model": model, "messages": [{"role": "user", "content": prompt}], "temperature": temperature, "max_tokens": 2000}
     
     try:
         resp = requests.post("https://api.x.ai/v1/chat/completions", headers=headers, json=payload, timeout=60)
@@ -174,17 +162,15 @@ def call_grok_api(prompt: str, model: str, temperature: float = 0.7,
                 avg_score = st.session_state.get("current_avg_score", 0.0)
                 log_grok_interaction(interaction_type, model, prompt, content, horizon, market_session, avg_score)
             return content
-        else:
-            return f"❌ API Error ({resp.status_code})"
+        return f"❌ API Error ({resp.status_code})"
     except Exception as e:
-        logger.error(f"Grok API failed: {e}")
-        return f"❌ Grok connection error: {str(e)[:120]}"
+        return f"❌ Grok error: {str(e)[:150]}"
 
 # ====================== DATA FETCH ======================
-@st.cache_data(ttl=90, show_spinner=False)
+@st.cache_data(ttl=90)
 def fetch_raw_market_data(tickers: List[str]):
     try:
-        raw = yf.download(tickers, period="1mo", interval="1d", group_by="ticker",
+        raw = yf.download(tickers, period="3mo", interval="1d", group_by="ticker",
                           auto_adjust=True, threads=True, progress=False)
         result = {}
         for t in tickers:
@@ -194,7 +180,7 @@ def fetch_raw_market_data(tickers: List[str]):
                     result[t] = df
         return result
     except Exception as e:
-        logger.error(f"yfinance failed: {e}")
+        st.error(f"Data fetch failed: {str(e)[:100]}")
         return {}
 
 # ====================== UI HELPERS ======================
@@ -206,75 +192,87 @@ def display_thesis(thesis: str, suffix: str = ""):
         c1, c2 = st.columns(2)
         with c1:
             if st.button("📋 Copy", key=f"copy_{abs(hash(thesis))%100000}_{suffix}"):
-                st.toast("✅ Copied to clipboard")
+                st.toast("✅ Copied")
         with c2:
-            if st.button("💾 Save to History", type="primary", key=f"save_{abs(hash(thesis))%100000}_{suffix}"):
-                st.success("✅ Saved to Grok History")
+            if st.button("💾 Save", type="primary", key=f"save_{abs(hash(thesis))%100000}_{suffix}"):
+                st.success("✅ Saved to History")
 
-# ====================== MAIN APP ======================
+# ====================== MAIN ======================
 def main():
     init_db()
     
-    if "grok_api_key" not in st.session_state:
-        st.session_state.grok_api_key = ""
-    if "raw_data" not in st.session_state:
-        st.session_state.raw_data = {}
-    if "last_thesis" not in st.session_state:
-        st.session_state.last_thesis = None
-    if "last_market_session" not in st.session_state:
-        st.session_state.last_market_session = None
+    if "grok_api_key" not in st.session_state: st.session_state.grok_api_key = ""
+    if "raw_data" not in st.session_state: st.session_state.raw_data = {}
+    if "last_thesis" not in st.session_state: st.session_state.last_thesis = None
 
-    st.set_page_config(page_title="GeoSupply v9.3", page_icon="🌍", layout="wide")
-    st.title("🌍 GeoSupply v9.3")
-    st.caption("**Rebound Profit Predictor** • Full Grok Self-Improvement + History")
+    st.set_page_config(page_title="GeoSupply v0.94", page_icon="🌍", layout="wide")
+    st.title("🌍 GeoSupply v0.94")
+    st.caption("Rebound Profit Predictor • Improved Market Selection & Granular Timeframes")
 
     with st.sidebar:
         st.header("🔑 Grok API")
         key = st.text_input("Grok API Key", type="password", value=st.session_state.grok_api_key)
         if key and key != st.session_state.grok_api_key:
             st.session_state.grok_api_key = key
-            st.success("✅ API Key saved")
+            st.success("✅ Key saved")
 
-        st.header("⚙️ Settings")
-        horizon = st.selectbox("Signal Horizon", ["5d", "10d", "1mo"], index=0)
-        market_session = st.selectbox("Market Session", 
-            ["Regular Hours (ASX+US)", "ASX Only", "US Only", "24h Global"], index=0)
-        model = st.selectbox("Grok Model", AVAILABLE_MODELS, index=0)
-        temperature = st.slider("Temperature", 0.0, 1.0, 0.7, 0.1)
+        st.header("⚙️ Market & Time Settings")
+        
+        market_mode = st.selectbox(
+            "Market Selection",
+            ["ASX + US", "ASX Only", "US Only", "24h Global"],
+            index=0
+        )
+        
+        timeframe = st.selectbox(
+            "Data Timeframe (Lookback)",
+            ["1d", "5d", "10d", "1mo", "3mo"],
+            index=2  # default 10d
+        )
+        
+        # Convert to days for calculation
+        days_map = {"1d": 1, "5d": 5, "10d": 10, "1mo": 20, "3mo": 60}
+        horizon_days = days_map[timeframe]
 
         st.subheader("Custom Tickers")
-        custom = st.text_input("Add tickers (comma separated)", "NVDA, TSLA, AAPL, AMD")
-        custom_tickers = [t.strip().upper() for t in custom.split(",") if t.strip()]
+        custom_input = st.text_input("Add extra tickers", "NVDA, TSLA, AAPL, AMD")
+        custom_tickers = [t.strip().upper() for t in custom_input.split(",") if t.strip()]
 
         if st.button("🔄 Fetch Latest Market Data", type="primary", use_container_width=True):
-            st.session_state.last_market_session = f"{market_session} @ {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
             st.cache_data.clear()
-            all_t = list(set(ALL_TICKERS + custom_tickers))
-            st.session_state.raw_data = fetch_raw_market_data(all_t)
-            st.success("✅ Market data updated")
+            
+            if market_mode == "ASX Only":
+                base_tickers = ALL_ASX_TICKERS
+            elif market_mode == "US Only":
+                base_tickers = ALL_US_TICKERS
+            else:
+                base_tickers = ALL_ASX_TICKERS + ALL_US_TICKERS
+                
+            all_tickers = list(set(base_tickers + custom_tickers))
+            st.session_state.raw_data = fetch_raw_market_data(all_tickers)
+            st.success(f"✅ Fetched data for {len(st.session_state.raw_data)} tickers ({market_mode})")
             st.rerun()
 
-    # Auto-fetch reliable tickers on first load
+    # Auto-fetch on first load
     if not st.session_state.raw_data:
         with st.spinner("Loading initial market data..."):
-            st.session_state.raw_data = fetch_raw_market_data(ALL_TICKERS + ["NVDA", "TSLA", "AAPL", "AMD"])
+            st.session_state.raw_data = fetch_raw_market_data(ALL_US_TICKERS + ["BHP.AX", "RIO.AX"])
 
     raw_data = st.session_state.raw_data
-    summary_df = SignalEngine.compute_signals(raw_data, horizon)
+    summary_df = SignalEngine.compute_signals(raw_data, horizon_days)
 
-    # ====================== TABS ======================
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "🚀 Top 5 Rebound", "📈 Full Leaderboard", "📊 Charts",
         "🔥 Heatmap", "🤖 Grok Self-Improvement", "📊 Analytics"
     ])
 
     with tab1:
-        st.subheader(f"🔥 Top 5 Real-Time Rebound Profit Opportunities ({horizon})")
-        st.caption(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S AEST')}")
+        st.subheader(f"🔥 Top 5 Real-Time Rebound Opportunities ({timeframe})")
+        st.caption(f"Market: {market_mode} | Last updated: {datetime.now().strftime('%H:%M:%S')}")
         if summary_df.empty:
-            st.warning("No data available. Click 'Fetch Latest Market Data'.")
+            st.warning("No data loaded. Please click 'Fetch Latest Market Data'.")
         else:
-            top5 = summary_df.head(5).copy()
+            top5 = summary_df.head(5)
             st.dataframe(
                 top5.style.background_gradient(subset=["Rebound Score"], cmap="RdYlGn")
                     .format({"Current Price": "${:.2f}", "Rebound Score": "{:.1f}"}),
@@ -308,41 +306,36 @@ def main():
 
     with tab5:
         st.subheader("🤖 Grok Self-Improvement & History")
-        
         if st.button("🚀 Run Self-Improvement Cycle", type="primary", use_container_width=True):
             if summary_df.empty:
-                st.warning("No data to analyze yet.")
+                st.warning("No data to analyze.")
             else:
-                ctx = f"Current top signals:\n{summary_df.head(12).to_string(index=False)}\n\n"
-                prompt = ctx + """Analyze the current rebound opportunities.
-                1. Suggest 2-3 high-conviction trades.
-                2. Provide self-improvement suggestions for the signal engine (weights, new indicators, etc.).
-                3. Rate overall system performance."""
-                
-                with st.spinner("Grok is analyzing and improving the system..."):
-                    thesis = call_grok_api(prompt, model, temperature, "self_improvement", horizon, st.session_state.last_market_session)
+                prompt = f"""Current top rebound opportunities ({timeframe} - {market_mode}):
+{summary_df.head(12).to_string(index=False)}
+
+Provide 2-3 high-conviction trades and suggest improvements to the rebound scoring logic."""
+                with st.spinner("Grok analyzing and self-improving..."):
+                    thesis = call_grok_api(prompt, "grok-4.20-reasoning", 0.7, "self_improvement", timeframe, market_mode)
                     st.session_state.last_thesis = thesis
-                    display_thesis(thesis, "self_improve")
+                    display_thesis(thesis, "self")
 
         if st.session_state.get("last_thesis"):
             display_thesis(st.session_state.last_thesis, "last")
 
-        st.subheader("📖 Grok Interaction History")
-        history_df = get_grok_history(50)
-        if not history_df.empty:
-            for _, row in history_df.iterrows():
-                with st.expander(f"{row['timestamp']} | {row.get('interaction_type', '—')}"):
+        st.subheader("Interaction History")
+        history = get_grok_history(40)
+        if not history.empty:
+            for _, row in history.iterrows():
+                with st.expander(f"{row['timestamp']} | {row.get('interaction_type','')}"):
                     st.markdown(row['response'])
-        else:
-            st.info("No Grok interactions yet. Run a Self-Improvement Cycle to begin.")
 
     with tab6:
-        st.subheader("Advanced Analytics")
+        st.subheader("Analytics")
         if not summary_df.empty:
             st.plotly_chart(px.scatter(summary_df, x="Vol Spike", y="Rebound Score", color="Sector",
-                                       hover_name="Ticker", title="Volume Spike vs Rebound Potential"), use_container_width=True)
+                                       hover_name="Ticker", title="Volume vs Rebound Potential"), use_container_width=True)
 
-    st.caption("v9.3 • Rebound Profit + Full Grok Self-Improvement & History • Production Ready")
+    st.caption("v0.94 • Improved Market Selection + Granular Timeframes")
 
 if __name__ == "__main__":
     main()
