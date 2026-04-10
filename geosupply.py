@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-"""
-🌍 GeoSupply AI Self-Evolving Rebound Profit Predictor v1.0
-Grok-Evolved Edition • Dynamic Weights + Stochastic + Bollinger + Backtesting + Deep Thesis
-"""
 
 import streamlit as st
 import pandas as pd
@@ -19,7 +15,6 @@ from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Optional, Any
 
-# ====================== CONFIG ======================
 BASE_DIR = Path(__file__).parent
 DB_PATH = BASE_DIR / "geosupply.db"
 EXPORT_DIR = BASE_DIR / "Export"
@@ -38,7 +33,6 @@ SECTORS = {
 ALL_ASX_TICKERS = [t for lst in SECTORS.values() for t in lst if t.endswith(".AX")]
 ALL_US_TICKERS = [t for lst in SECTORS.values() for t in lst if not t.endswith(".AX")]
 
-# ====================== LOGGING & DB ======================
 logging.basicConfig(filename="geosupply_analyzer.log", level=logging.INFO,
                     format="%(asctime)s | %(levelname)s | %(message)s", force=True)
 
@@ -78,15 +72,16 @@ def get_grok_history(limit: int = 100) -> pd.DataFrame:
     except Exception:
         return pd.DataFrame()
 
-# ====================== SIGNAL ENGINE v1.0 ======================
 class SignalEngine:
     @staticmethod
-    def calculate_rsi(close: pd.Series, period: int = 14) -> float:
+    def calculate_rsi(close: pd.Series, period: int = 14, full_series: bool = False) -> Any:
         delta = close.diff()
         gain = delta.clip(lower=0).rolling(period).mean()
         loss = -delta.clip(upper=0).rolling(period).mean()
         rs = gain / loss
         rsi = 100 - (100 / (1 + rs))
+        if full_series:
+            return rsi.fillna(50.0)
         return float(rsi.iloc[-1]) if len(rsi) > period else 50.0
 
     @staticmethod
@@ -98,11 +93,14 @@ class SignalEngine:
         return float(macd.iloc[-1] - signal.iloc[-1])
 
     @staticmethod
-    def calculate_stochastic(high: pd.Series, low: pd.Series, close: pd.Series, period: int = 14, smooth: int = 3) -> float:
+    def calculate_stochastic(high: pd.Series, low: pd.Series, close: pd.Series, period: int = 14, smooth: int = 3, full_series: bool = False) -> Any:
         lowest_low = low.rolling(period).min()
         highest_high = high.rolling(period).max()
         k = 100 * ((close - lowest_low) / (highest_high - lowest_low))
-        return float(k.rolling(smooth).mean().iloc[-1]) if not pd.isna(k.rolling(smooth).mean().iloc[-1]) else 50.0
+        stoch = k.rolling(smooth).mean()
+        if full_series:
+            return stoch.fillna(50.0)
+        return float(stoch.iloc[-1]) if not pd.isna(stoch.iloc[-1]) else 50.0
 
     @staticmethod
     def calculate_bollinger_percent(close: pd.Series, period: int = 20) -> float:
@@ -144,7 +142,6 @@ class SignalEngine:
                 bb_percent = SignalEngine.calculate_bollinger_percent(close)
                 vol_20d = SignalEngine.calculate_volatility(close)
 
-                # Dynamic weighted rebound score (normalised weights sum to 1)
                 rebound_score = round(
                     max(0, 40 - rsi) * weights["rsi"] +
                     max(0, 25 - stoch) * weights["stoch"] +
@@ -181,7 +178,6 @@ class SignalEngine:
         df = pd.DataFrame(records)
         return df.sort_values("Rebound Score", ascending=False).reset_index(drop=True) if not df.empty else df
 
-# ====================== GROK API ======================
 def call_grok_api(prompt: str, model: str, temperature: float = 0.7,
                   interaction_type: Optional[str] = None, horizon: str = "", market_session: str = "") -> str:
     if not st.session_state.get("grok_api_key"):
@@ -202,7 +198,6 @@ def call_grok_api(prompt: str, model: str, temperature: float = 0.7,
     except Exception as e:
         return f"❌ Grok error: {str(e)[:200]}"
 
-# ====================== DATA FETCH ======================
 @st.cache_data(ttl=120)
 def fetch_raw_market_data(tickers: List[str]):
     try:
@@ -219,7 +214,6 @@ def fetch_raw_market_data(tickers: List[str]):
         st.error(f"Data fetch failed: {str(e)[:120]}")
         return {}
 
-# ====================== BACKTEST ENGINE ======================
 @st.cache_data(ttl=300)
 def run_simple_backtest(raw_data: Dict, horizon_days: int, threshold: float = 65.0):
     results = []
@@ -231,7 +225,6 @@ def run_simple_backtest(raw_data: Dict, horizon_days: int, threshold: float = 65
         forward_returns = []
         for i in range(40, len(hist) - horizon_days):
             window = hist.iloc[i-40:i+1]
-            # Simplified past score calculation (using same logic but without full weights for speed)
             past_rsi = SignalEngine.calculate_rsi(window["Close"])
             past_vol_spike = window["Volume"].iloc[-1] / window["Volume"].mean() if window["Volume"].mean() > 0 else 1
             past_change = ((window["Close"].iloc[-1] - window["Close"].iloc[-horizon_days]) / window["Close"].iloc[-horizon_days]) * 100
@@ -246,7 +239,6 @@ def run_simple_backtest(raw_data: Dict, horizon_days: int, threshold: float = 65
             results.append({"Ticker": ticker, "Signals Triggered": len(forward_returns), "Avg Return %": avg_return, "Win Rate %": win_rate})
     return pd.DataFrame(results).sort_values("Avg Return %", ascending=False) if results else pd.DataFrame()
 
-# ====================== UI HELPERS ======================
 def display_thesis(thesis: str, suffix: str = ""):
     if not thesis:
         return
@@ -261,7 +253,6 @@ def display_thesis(thesis: str, suffix: str = ""):
             if st.button("💾 Save to History", type="primary", key=f"save_{abs(hash(thesis))%100000}_{suffix}"):
                 st.success("✅ Saved")
 
-# ====================== MAIN ======================
 def main():
     init_db()
     
@@ -316,7 +307,6 @@ def main():
             st.success(f"✅ Fetched {len(st.session_state.raw_data)} tickers")
             st.rerun()
 
-    # Auto-fetch
     if not st.session_state.raw_data:
         with st.spinner("Loading initial market data..."):
             st.session_state.raw_data = fetch_raw_market_data(ALL_US_TICKERS + ["BHP.AX", "RIO.AX"])
@@ -339,7 +329,6 @@ def main():
                          .format({"Current Price": "${:.2f}", "Rebound Score": "{:.1f}"}),
                          use_container_width=True, hide_index=True)
 
-            # Quick Grok Thesis for top tickers
             st.subheader("🎯 Quick Grok Thesis")
             selected_top = st.selectbox("Select ticker for instant Grok analysis", top5["Ticker"].tolist(), key="top_thesis")
             if st.button("Generate Grok Thesis for this ticker", type="primary"):
@@ -368,8 +357,10 @@ def main():
                 fig = make_subplots(rows=4, cols=1, shared_xaxes=True, row_heights=[0.45, 0.15, 0.15, 0.25])
                 fig.add_trace(go.Candlestick(x=hist.index, open=hist["Open"], high=hist["High"], low=hist["Low"], close=hist["Close"]), row=1, col=1)
                 fig.add_trace(go.Bar(x=hist.index, y=hist["Volume"]), row=2, col=1)
-                fig.add_trace(go.Scatter(x=hist.index, y=SignalEngine.calculate_rsi(hist["Close"]), name="RSI"), row=3, col=1)
-                fig.add_trace(go.Scatter(x=hist.index, y=[SignalEngine.calculate_stochastic(hist["High"], hist["Low"], hist["Close"])]*len(hist), name="Stoch"), row=4, col=1)
+                rsi_series = SignalEngine.calculate_rsi(hist["Close"], full_series=True)
+                fig.add_trace(go.Scatter(x=hist.index, y=rsi_series, name="RSI"), row=3, col=1)
+                stoch_series = SignalEngine.calculate_stochastic(hist["High"], hist["Low"], hist["Close"], full_series=True)
+                fig.add_trace(go.Scatter(x=hist.index, y=stoch_series, name="Stoch"), row=4, col=1)
                 fig.update_layout(height=820, template="plotly_dark", title=f"{ticker} • Full Technical View")
                 st.plotly_chart(fig, use_container_width=True)
 
@@ -387,7 +378,6 @@ def main():
             if summary_df.empty:
                 st.warning("No data.")
             else:
-                # The optimised prompt from above
                 prompt = f"""You are Grok, expert quant trader + full-stack Python/Streamlit engineer. 
 Your mission is to evolve GeoSupply into the ultimate short-term rebound predictor.
 
