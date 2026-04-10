@@ -19307,3 +19307,16 @@
 2026-04-10 16:09:15,583 | INFO | === GeoSupply v7.2 started with Open Market ===
 2026-04-10 16:09:15,652 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154356001): is_file, is_modified
 2026-04-10 16:09:15,652 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 16:15:02,903 | ERROR | yfinance error: name 'yfinance' is not defined
+2026-04-10 16:15:11,210 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154369164): is_file, is_modified
+2026-04-10 16:15:11,211 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 16:15:15,088 | ERROR | yfinance error: name 'yfinance' is not defined
+2026-04-10 16:15:15,089 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154369220): is_file, is_modified
+2026-04-10 16:15:15,090 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 16:15:29,089 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154369356): is_file, is_modified
+2026-04-10 16:15:29,090 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 16:15:30,030 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154369374): is_file, is_modified
+2026-04-10 16:15:30,031 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2026-04-10 16:15:30,075 | ERROR | yfinance error: name 'yfinance' is not defined
+2026-04-10 16:15:30,077 | DEBUG | NativeEvent(path="/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log", inode=38304688, flags=11000, id=154369377): is_file, is_modified
+2026-04-10 16:15:30,079 | DEBUG | queue_event FileModifiedEvent(src_path='/Users/jeff/Downloads/XAi/TSLAWEB/geosupply_analyzer/geosupply_analyzer/ProductionCODE/XAi/geosupply_analyzer.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
