@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 
 🌍 GeoSupply Short-Term Profit Predictor v8.0
