@@ -1,28 +1,6 @@
 #!/usr/bin/env python3
 """
 
-🌍 GeoSupply Short-Term Profit Predictor v8.0
-
-xAI Self-Evolving Edition • Built by Grok for xAI systems architecture excellence
-
-
-
-Significantly superior to v7.2:
-
-• 2.3× faster vectorized engine + advanced indicators (MACD, SMA)
-
-• Full implementation of all 5 tabs with interactive visualizations
-
-• Synchronous Grok API with retry + scoped SSL (no global hack)
-
-• Self-improvement loop that analyzes past performance and evolves signal formula
-
-• Custom tickers, simulated backtesting, risk analytics, per-ticker AI thesis
-
-• Production-grade: typed, modular classes, comprehensive logging, auto-export
-
-• PEP 8 + modern Python + beautiful dark UI
-
 """
 
 
