@@ -18,3 +18,19 @@
 2026-04-11 13:32:05,737 - ERROR - 
 1 Failed download:
 2026-04-11 13:32:05,737 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:34:40,678 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:34:46,513 - ERROR - 
+1 Failed download:
+2026-04-11 13:34:46,513 - ERROR - 
+1 Failed download:
+2026-04-11 13:34:46,513 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:34:46,513 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:34:47,576 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:34:56,421 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:35:04,792 - ERROR - 
+1 Failed download:
+2026-04-11 13:35:04,792 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:35:04,802 - ERROR - 
+1 Failed download:
+2026-04-11 13:35:04,802 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:35:05,268 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
