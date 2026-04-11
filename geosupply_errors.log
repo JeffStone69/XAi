@@ -20,3 +20,11 @@
 2026-04-12 07:35:47,146 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
 2026-04-12 07:38:48,089 - ERROR - Unexpected Grok error: Responses.create() got an unexpected keyword argument 'max_tokens'
 2026-04-12 07:39:56,139 - ERROR - Unexpected Grok error: Responses.create() got an unexpected keyword argument 'max_tokens'
+2026-04-12 08:58:41,862 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-12 08:58:42,965 - ERROR - 
+1 Failed download:
+2026-04-12 08:58:42,965 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-12 08:58:50,994 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-12 08:58:53,144 - ERROR - 
+1 Failed download:
+2026-04-12 08:58:53,144 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
