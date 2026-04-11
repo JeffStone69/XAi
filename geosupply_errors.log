@@ -42,3 +42,20 @@
 2026-04-11 13:39:47,670 - ERROR - 
 1 Failed download:
 2026-04-11 13:39:47,670 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:46:58,172 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:47:05,768 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:47:06,997 - ERROR - 
+1 Failed download:
+2026-04-11 13:47:06,997 - ERROR - 
+1 Failed download:
+2026-04-11 13:47:06,997 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:47:06,997 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:47:07,754 - ERROR - Data fetch failed: Cannot join tz-naive with tz-aware DatetimeIndex
+2026-04-11 13:47:13,180 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:47:19,939 - ERROR - 
+1 Failed download:
+2026-04-11 13:47:19,940 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:47:19,967 - ERROR - 
+1 Failed download:
+2026-04-11 13:47:19,967 - ERROR - ['RNE.AX']: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-11 13:47:22,021 - ERROR - $RNE.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
