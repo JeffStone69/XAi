@@ -1,3 +1,5 @@
+
+
 # 🌍 GeoSupply Rebound Oracle v4.0
 
 **Self-Evolving • Grok-History-Correlated • Multi-Region + Macro • AWS Ready**
@@ -28,4 +30,103 @@ Live demo-ready single-file Streamlit app built as an elite full-stack quant + s
 ### 1. Clone the repo
 ```bash
 git clone https://github.com/JeffStone69/XAi.git
-cd XAi
+cd XAi2. Install dependencies
+Bashpip install -r requirements.txt
+3. Set up secrets (critical)
+Create folder .streamlit/ and file .streamlit/secrets.toml:
+toml[alpha_vantage]
+key = "CXJGLOIMINTIXQLE"
+
+[grok]
+key = "xai-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+Never commit your secrets — .streamlit/secrets.toml is already in .gitignore
+4. Run the app
+Bashstreamlit run analyserV4.py
+
+📁 Project Structure
+textXAi/
+├── analyserV4.py                 ← Main single-file app (v4.0)
+├── geosupply.db                  ← Auto-created SQLite database
+├── grok_responses.log            ← Structured JSON logs
+├── geosupply_errors.log          ← Error logging
+├── .streamlit/secrets.toml       ← Your API keys (gitignored)
+├── requirements.txt
+├── .gitignore
+└── README.md
+
+🧬 Self-Evolution & Learning Loop
+Every time you:
+
+Generate a Grok thesis, or
+Run the advanced backtester,
+
+the app automatically:
+
+Correlates performance with Grok’s textual suggestions
+Performs Bayesian-style weight update
+Saves to weights_history table
+Shows drift in the Self-Learning Evolution tab
+
+
+🌐 Multi-Region + Macro Dashboard
+
+Real-time rebound leaderboard across all regions
+Live market status banner (Europe, Asia, US pre-market)
+VIX, ^TNX, OPEX countdown, and gamma-flip proxies folded into every Rebound Score
+
+
+📈 Deployment Options
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PlatformStatusNotesLocal Streamlit✅ Readystreamlit run analyserV4.pyStreamlit Community Cloud✅ ReadyPaste secrets in app settingsAWS Lightsail / Beanstalk✅ ReadyUse AWS Secrets Manager + S3Hugging Face Spaces✅ ReadyWorks with secrets
+
+⚠️ Disclaimer
+This is for educational and research purposes only.
+Not financial advice. Past performance is not indicative of future results.
+Always do your own due diligence.
+
+📜 Changelog
+v4.0 (April 2026)
+
+Full autonomous self-learning Bayesian loop
+History Correlation Engine with analogue matching
+Multi-region + macro/options layer
+Advanced Monte-Carlo backtester with exact Grok risk rules
+Structured logging + correlation IDs
+AWS-ready S3 backup support
+
+Previous versions: See commit history
+
+🔑 License
+Apache-2.0 (same as original repo)
+
+Built with ❤️ as a self-improving AI systems architect
+Questions or want v5.0 features? Open an issue or ping me on 𝕏.
