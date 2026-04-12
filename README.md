@@ -77,35 +77,6 @@ VIX, ^TNX, OPEX countdown, and gamma-flip proxies folded into every Rebound Scor
 
 📈 Deployment Options
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 PlatformStatusNotesLocal Streamlit✅ Readystreamlit run analyserV4.pyStreamlit Community Cloud✅ ReadyPaste secrets in app settingsAWS Lightsail / Beanstalk✅ ReadyUse AWS Secrets Manager + S3Hugging Face Spaces✅ ReadyWorks with secrets
 
 ⚠️ Disclaimer
