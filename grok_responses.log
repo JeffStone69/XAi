@@ -18,3 +18,6 @@
 {"timestamp": "2026-04-13T04:09:45.145624", "correlation_id": "7a014326", "event": "thesis_generated", "ticker": "TSLA", "score": 31.4}
 {"timestamp": "2026-04-13T04:10:54.807349", "correlation_id": "392af19c", "event": "grok_call", "model": "grok-4.20-reasoning", "prompt_length": 270}
 {"timestamp": "2026-04-13T04:10:54.808780", "correlation_id": "25169609", "event": "thesis_generated", "ticker": "TSLA", "score": 31.4}
+{"timestamp": "2026-04-13T04:26:06.192112", "correlation_id": "54223618", "event": "grok_call", "model": "grok-4.20-reasoning", "prompt_length": 270}
+{"timestamp": "2026-04-13T04:26:06.194206", "correlation_id": "020a04a4", "event": "thesis_generated", "ticker": "TSLA", "score": 31.4}
+{"timestamp": "2026-04-13T04:28:37.626680", "correlation_id": "7c1557a4", "event": "weight_evolution", "weights": {"rsi": 0.26402143329844585, "stoch": 0.21601753633509208, "bb": 0.16801363937173833, "drawdown": 0.1920155878534152, "vol_spike": 0.10800876816754604, "macd": 0.0960077939267076, "vix_regime": 0.06000487120419225, "opex_proximity": 0.0480038969633538, "gamma_proxy": 0.0480038969633538}, "performance": 3.1}
