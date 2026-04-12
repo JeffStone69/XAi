@@ -1,6 +1,9 @@
-streamlit
+```txt
+streamlit>=1.32.0
 pandas
 numpy
 yfinance
 plotly
 requests
+boto3
+sqlite3
