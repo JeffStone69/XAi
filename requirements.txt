@@ -6,4 +6,3 @@ yfinance
 plotly
 requests
 boto3
-sqlite3

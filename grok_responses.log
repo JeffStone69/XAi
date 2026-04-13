@@ -71,13 +71,3 @@
 {"timestamp": "2026-04-13T04:42:47.747883", "correlation_id": "593758de", "event": "historical_seed", "ticker": "BABA"}
 {"timestamp": "2026-04-13T04:42:47.748041", "correlation_id": "f55348a0", "event": "historical_seed", "ticker": "AAPL"}
 {"timestamp": "2026-04-13T04:42:47.748159", "correlation_id": "a5bbd335", "event": "historical_seed", "ticker": "AMD"}
-{"timestamp": "2026-04-13T12:37:18.131678", "correlation_id": "29ae90b1", "event": "historical_seed", "ticker": "TSLA"}
-{"timestamp": "2026-04-13T12:37:18.133121", "correlation_id": "254f9d73", "event": "historical_seed", "ticker": "NVDA"}
-{"timestamp": "2026-04-13T12:37:18.133303", "correlation_id": "c321cbc2", "event": "historical_seed", "ticker": "9988.HK"}
-{"timestamp": "2026-04-13T12:37:18.133427", "correlation_id": "d67edd9f", "event": "historical_seed", "ticker": "VOD.L"}
-{"timestamp": "2026-04-13T12:37:18.133536", "correlation_id": "4c2b64f4", "event": "historical_seed", "ticker": "FMG.AX"}
-{"timestamp": "2026-04-13T12:37:18.133641", "correlation_id": "8a366567", "event": "historical_seed", "ticker": "BP.L"}
-{"timestamp": "2026-04-13T12:37:18.133745", "correlation_id": "e37b84d0", "event": "historical_seed", "ticker": "GLEN.L"}
-{"timestamp": "2026-04-13T12:37:18.133848", "correlation_id": "a5def98f", "event": "historical_seed", "ticker": "BABA"}
-{"timestamp": "2026-04-13T12:37:18.133949", "correlation_id": "594b5336", "event": "historical_seed", "ticker": "AAPL"}
-{"timestamp": "2026-04-13T12:37:18.134051", "correlation_id": "48280d88", "event": "historical_seed", "ticker": "AMD"}
