@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+yfinance
+plotly
+requests
+python-dotenv
+folium
+streamlit-folium
+geopy
