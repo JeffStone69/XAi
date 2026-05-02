@@ -1,0 +1,3 @@
+id,timestamp,prompt_hash,prompt,model,response,tokens,prompt_tokens,completion_tokens,total_tokens,cost_usd,latency,fix_applied
+1,2026-05-02T12:20:19.914929,cc5665b371ffd4673d2950a6d025d3a9,Provide a detailed rebound strategy analysis for TSLA using recent historical data.,grok-4.3,Invalid xAI key. Please regenerate at https://console.x.ai and re-validate.,9,0,0,0,0.0,0.9049949645996094,0
+2,2026-05-02T12:20:23.113422,8503dce212a9777132ccac6b4a347441,Analyze the current ReboundForge backtest strategies and suggest 3 specific improvements for better profitability on TSLA.,grok-4.3,Invalid xAI key. Please regenerate at https://console.x.ai and re-validate.,9,0,0,0,0.0,0.45464015007019043,0
